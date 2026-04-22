@@ -38,7 +38,7 @@ work:
         startDate: 2026-03-01
         endDate: present
         highlights:
-          - Shipping production features across a distributed system at a pharmaceutical software venture, developing backend services and contributing to deployment workflows and system design.
+          - Shipping production features across a distributed system at a pharmaceutical software venture, collaborating with engineers in a distributed team environment on backend services, deployment workflows, and system design.
           - Contributing to code review and deployment pipeline decisions alongside senior engineers in a fast-paced remote environment.
   - organization: Independent Contracting
     location: Perth, Western Australia
@@ -47,8 +47,8 @@ work:
         startDate: 2026-01-01
         endDate: 2026-03-01
         highlights:
-          - Engineered and operated full-stack systems serving hundreds of active users, with full ownership over containerisation, deployment, and production reliability.
-          - Operated the full delivery lifecycle solo — architecture, implementation, deployment, and post-launch reliability — across both local and cloud environments.
+          - Designed and shipped full-stack systems end-to-end, from UI through backend to deployment, serving hundreds of active users with full ownership over containerisation and production reliability.
+          - Operated the full delivery lifecycle building and operating production systems, architecture, implementation, deployment, and post-launch reliability, across both local and cloud environments.
   - organization: Lightbulb Skills
     url: https://www.lightbulbskills.com.au
     location: Perth, Western Australia
@@ -76,8 +76,8 @@ education:
     endDate: 2025-10-01
     location: Perth, Western Australia
     highlights:
-      - GPA 7.5 / 10.0 — transferred to Computer Science after first year
-      - Dean's List — Letter of Commendation
+      - GPA 7.5 / 10.0, transferred to Computer Science after first year
+      - Dean's List, Letter of Commendation
 
   - institution: Aquinas College
     url: https://www.aquinas.wa.edu.au
@@ -98,19 +98,19 @@ affiliations:
       - Contributed to the Tech Team, building and maintaining tooling and infrastructure for the association's events and online presence.
 
 awards:
-  - title: 3rd Place — VisagioX & Venture UWA Hackathon
+  - title: 3rd Place, VisagioX & Venture UWA Hackathon
     date: 2026-04-12
     issuer: VisagioX & Venture UWA
     location: Perth, Western Australia
     highlights:
       - Built an on-device AI application detecting harmful conversation patterns in real time; leveraged AI tooling throughout development to accelerate the build.
-  - title: Sponsored Participant — Hack48
+  - title: Sponsored Participant, Hack48
     date: 2025-12-10
     issuer: Hack48
     location: Sydney, New South Wales, Australia
     highlights:
       - Competitively sponsored to attend Hack48, a 48-hour hackathon; engineered a Braille conversion system targeting accessibility for visually impaired users.
-  - title: Sponsored Participant — Hack Club Residency
+  - title: Sponsored Participant, Hack Club Residency
     date: 2025-06-01
     issuer: Hack Club
     location: San Francisco, California, United States
@@ -124,7 +124,7 @@ awards:
     date: 2024-12-01
     issuer: Ronald McDonald House Charities WA
     location: Perth, Western Australia
-  - title: Most Innovative — ComSSA Hackathon
+  - title: Most Innovative, ComSSA Hackathon
     date: 2024-12-01
     issuer: Curtin University / ComSSA
     location: Perth, Western Australia
@@ -139,7 +139,7 @@ projects:
     startDate: 2025-06-01
     endDate: Present
     highlights:
-      - Provisioned and operated a full-stack AI system for automated document classification in legal discovery; designed a service-oriented architecture separating frontend, API layer, and backend processing services.
+      - Provisioned and operated a full-stack AI system for automated document classification in legal discovery, designed to support real-world document workflows for end users; architected service-oriented separation across frontend, API layer, and backend processing services.
       - Developed asynchronous backend workers for high-volume document classification pipelines with concurrent processing.
       - Provisioned and managed cloud infrastructure on AWS using Infrastructure-as-Code (OpenTofu), defining compute, storage, and data processing pipelines for consistent, reproducible deployments.
 
@@ -149,7 +149,7 @@ projects:
     endDate: Present
     highlights:
       - Engineered a self-hosted infrastructure stack using Docker-based service orchestration and reverse proxy architecture on local hardware; built and operated systems across both local and cloud environments.
-      - Exposed services securely via Cloudflare Tunnel, eliminating public attack surface; managed TLS, networking, and service isolation across multiple running services.
+      - Exposed services securely via Cloudflare Tunnel, eliminating public attack surface; managed TLS, networking, and service isolation across multiple containerised services.
 
   - name: "Still"
     url: https://github.com/austindelic/still
@@ -165,7 +165,7 @@ projects:
     startDate: 2025-09-01
     endDate: Present
     highlights:
-      - Engineered a full-stack system for converting documents into audio and sensory outputs, with a Go backend handling AI processing pipelines optimised for performance and throughput.
+      - Engineered a full-stack system for converting documents into audio and sensory outputs, with a Go backend handling AI processing pipelines leveraging concurrent processing for performance, throughput, and low-latency processing.
       - Designed and implemented typed APIs using Connect-tRPC to interface between frontend and backend services.
       - Built data pipelines for document ingestion, processing, and output transformation with scalable architecture for real-time generation.
 
@@ -201,7 +201,7 @@ skills:
       - PostgreSQL
       - REST APIs
       - Distributed processing
-      - Cloud architecture fundamentals, distributed systems, and service isolation
+      - distributed systems, cloud architecture fundamentals, and service isolation
   - category: Soft Skills
     skills:
       - Leadership

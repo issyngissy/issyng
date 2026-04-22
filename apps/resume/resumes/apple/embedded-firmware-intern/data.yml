@@ -88,7 +88,7 @@ education:
     location: Perth, Western Australia
     highlights:
       - Completed first year of Mechatronic Engineering Honours before transferring to Computer Science; GPA 7.5 / 10.0
-      - Dean's List — Letter of Commendation
+      - Dean's List, Letter of Commendation
 
   - institution: Aquinas College
     url: https://www.aquinas.wa.edu.au
@@ -109,21 +109,21 @@ affiliations:
       - Contributed to the Tech Team, building and maintaining tooling and infrastructure for the association's events and online presence.
 
 awards:
-  - title: 3rd Place — VisagioX & Venture UWA Hackathon
+  - title: 3rd Place, VisagioX & Venture UWA Hackathon
     date: 2026-04-12
     issuer: VisagioX & Venture UWA
     location: Perth, Western Australia
     highlights:
       - Designed and built an on-device AI system for real-time detection of harmful conversation patterns; all inference executed locally with zero data transmission, under strict latency and resource constraints.
-  - title: Sponsored Participant — Hack48
+  - title: Sponsored Participant, Hack48
     date: 2025-12-10
     issuer: Hack48
     location: Sydney, New South Wales, Australia
     highlights:
       - Competitively sponsored to attend Hack48, a 48-hour hackathon uniting top student builders across Australia and internationally.
       - Engineered a Braille conversion system to transform written content into tactile output for visually impaired users.
-      - Completed Lyrathon in the same trip — two consecutive 48-hour hackathons back to back.
-  - title: Sponsored Participant — Hack Club Residency
+      - Completed Lyrathon in the same trip, two consecutive 48-hour hackathons back to back.
+  - title: Sponsored Participant, Hack Club Residency
     date: 2025-06-01
     issuer: Hack Club
     location: San Francisco, California, United States
@@ -138,7 +138,7 @@ awards:
     date: 2024-12-01
     issuer: Ronald McDonald House Charities WA
     location: Perth, Western Australia
-  - title: Most Innovative — ComSSA Hackathon
+  - title: Most Innovative, ComSSA Hackathon
     date: 2024-12-01
     issuer: Curtin University / ComSSA
     location: Perth, Western Australia

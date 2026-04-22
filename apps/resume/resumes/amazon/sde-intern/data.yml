@@ -6,7 +6,7 @@ personal:
   phone: (+61) 402 919 111
   url: https://austindelic.com
   titles:
-    - Software Engineer (Backend & Systems)
+    - Software Development Engineer
   location:
     city: Perth
     country: ""
@@ -29,7 +29,7 @@ work:
         endDate: present
         highlights:
           - Selected for Cohort One of LaunchLAB AI '26, a competitive AI product accelerator run by the AI Institute of Australia.
-          - Building AI-native products with ML model integration and real-time inference; actively applying AI tooling to accelerate development workflows.
+          - Building AI-native products with ML model integration and real-time inference pipelines, taking ownership of system architecture and delivery end-to-end.
   - organization: Scrypt Ventures
     url: https://scrypt.com.au/
     location: Remote
@@ -38,8 +38,8 @@ work:
         startDate: 2026-03-01
         endDate: present
         highlights:
-          - Shipping production features across a distributed full-stack system handling production workloads at a pharmaceutical software venture, collaborating with engineers in a distributed team environment.
-          - Developing backend services and contributing to system design, code review, and deployment pipeline decisions alongside senior engineers.
+          - Developing backend services on a distributed production system at a pharmaceutical software venture, collaborating with engineers across a distributed team.
+          - Taking ownership of backend features and contributing to system design decisions, code review, and deployment pipeline improvements alongside senior engineers.
   - organization: Independent Contracting
     location: Perth, Western Australia
     positions:
@@ -47,7 +47,7 @@ work:
         startDate: 2026-01-01
         endDate: 2026-03-01
         highlights:
-          - Designed and shipped full-stack applications end-to-end, from UI through backend to deployment, serving hundreds of active users with full infrastructure ownership.
+          - Designed and shipped full-stack systems end-to-end, from backend architecture to deployment on AWS, serving hundreds of active users with full infrastructure ownership.
           - Operated the full delivery lifecycle building and operating production systems, architecture, implementation, deployment, and post-launch reliability, as a solo engineer.
   - organization: Lightbulb Skills
     url: https://www.lightbulbskills.com.au
@@ -57,8 +57,8 @@ work:
         startDate: 2024-10-01
         endDate: 2025-12-23
         highlights:
-          - Architected and maintained a production CRM built on Next.js, React, and PostgreSQL; owned schema design, asynchronous backend processing, and deployment end-to-end.
-          - Shipped iterative frontend and backend improvements with a focus on reliability and maintainability, improving user-facing functionality and system performance in a live production environment.
+          - Architected and maintained a production CRM on Next.js, React, and PostgreSQL; owned schema design, asynchronous backend processing, and deployment end-to-end.
+          - Shipped iterative frontend and backend improvements with a focus on reliability and maintainability in a live production environment.
 
 education:
   - institution: Curtin University
@@ -103,7 +103,7 @@ awards:
     issuer: VisagioX & Venture UWA
     location: Perth, Western Australia
     highlights:
-      - Built an on-device AI application detecting harmful conversation patterns in real time; leveraged AI tooling throughout development to accelerate the build.
+      - Built an on-device AI application detecting harmful conversation patterns in real time with no data leaving the device; owned the system end-to-end from architecture to delivery.
   - title: Sponsored Participant, Hack48
     date: 2025-12-10
     issuer: Hack48
@@ -111,14 +111,12 @@ awards:
     highlights:
       - Competitively sponsored to attend Hack48, a 48-hour hackathon uniting top student builders across Australia and internationally.
       - Engineered a Braille conversion system to transform written content into tactile output for visually impaired users.
-      - Completed Lyrathon in the same trip, two consecutive 48-hour hackathons back to back.
   - title: Sponsored Participant, Hack Club Residency
     date: 2025-06-01
     issuer: Hack Club
     location: San Francisco, California, United States
     highlights:
-      - Sponsored for an international Hack Club residency in San Francisco, shipping independent projects alongside peers from across the world.
-      - Competed in the UC Berkeley AI Hackathon (Jun–Jul 2025).
+      - Sponsored for an international Hack Club residency in San Francisco; competed in the UC Berkeley AI Hackathon (Jun, Jul 2025).
   - title: Most Innovative, ComSSA Hackathon
     date: 2024-12-01
     issuer: Curtin University / ComSSA
@@ -130,9 +128,9 @@ projects:
     startDate: 2025-06-01
     endDate: Present
     highlights:
-      - Built a full-stack AI system for automated document classification in legal discovery, designed to support real-world document workflows for end users; architected service-oriented separation across frontend, API layer, and backend processing services.
-      - Developed asynchronous backend workers for high-volume document classification pipelines with concurrent processing.
-      - Provisioned and managed cloud infrastructure on AWS using Infrastructure-as-Code (OpenTofu), defining compute, storage, and data processing pipelines.
+      - Built a full-stack AI system for automated document classification in legal discovery, designed to support real-world document workflows at scale; owned system architecture end-to-end.
+      - Developed asynchronous backend workers in Go for high-volume document classification pipelines with concurrent processing and fault-tolerant design.
+      - Provisioned and managed cloud infrastructure on AWS using Infrastructure-as-Code (OpenTofu), defining compute, storage, and data processing pipelines for reproducible deployments.
 
   - name: "Tactify (AI Document Processing System)"
     affiliation: Personal Project
@@ -140,17 +138,8 @@ projects:
     endDate: Present
     highlights:
       - Engineered a full-stack system for converting documents into audio and sensory outputs, with a Go backend handling AI processing pipelines optimised for performance, throughput, and low-latency processing.
-      - Designed and implemented typed APIs using Connect-tRPC to support frontend-backend integration.
-      - Built data pipelines for document ingestion, processing, and output transformation with scalable architecture for real-time generation.
-
-  - name: "crib."
-    url: https://github.com/austindelic/crib
-    affiliation: Open Source
-    startDate: 2025-04-01
-    endDate: Present
-    highlights:
-      - Built a full-stack collaborative task manager using Svelte 5 (runes), SvelteKit, and PostgreSQL; designed data schema, API layer, and UI end-to-end, focusing on real-time user interactions and responsive frontend behaviour.
-      - Engineered real-time synchronisation across clients using server-sent events, leveraging fine-grained reactivity for a low-latency UI.
+      - Designed and implemented typed APIs using Connect-tRPC, enforcing contracts between frontend and backend services.
+      - Built data ingestion and transformation pipelines for unstructured document workloads with scalable architecture for real-time output generation.
 
   - name: "Still"
     url: https://github.com/austindelic/still
@@ -158,47 +147,56 @@ projects:
     startDate: 2024-12-01
     endDate: Present
     highlights:
-      - Engineered a Rust-based CLI tool targeting deterministic, cross-platform dependency resolution and environment reproducibility across macOS, Linux, and Windows.
-      - Designed a custom TOML specification with conditional logic and platform-aware build graphs; implemented a dependency resolver producing deterministic, reproducible output.
-      - Unified package management, version pinning, task execution, and environment configuration into a single composable binary.
+      - Engineered a Rust-based systems CLI for deterministic, cross-platform dependency resolution and environment reproducibility across macOS, Linux, and Windows.
+      - Designed a custom TOML specification with conditional logic and platform-aware build graphs; implemented a dependency resolver producing deterministic, reproducible output at scale.
+
+  - name: "crib."
+    url: https://github.com/austindelic/crib
+    affiliation: Open Source
+    startDate: 2025-04-01
+    endDate: Present
+    highlights:
+      - Built a full-stack collaborative task manager using Svelte 5 (runes), SvelteKit, and PostgreSQL; designed data schema, API layer, and deployment end-to-end.
+      - Engineered real-time synchronisation across clients using server-sent events with fine-grained reactivity for a low-latency user experience.
 
 skills:
+  - category: Core CS
+    skills:
+      - Data Structures
+      - Algorithms
+      - System Design
+      - Object-Oriented Programming
   - category: Languages
     skills:
       - Python
       - Go
+      - Kotlin
       - TypeScript / JavaScript
       - Rust
       - C / C++
       - SQL
       - Bash
-      - Kotlin
-  - category: Backend Systems
+  - category: Backend & Distributed Systems
     skills:
-      - PostgreSQL
-      - REST APIs
+      - AWS (EC2, S3, Lambda)
       - Distributed systems
-      - Cloud architecture fundamentals
-      - Service isolation
-  - category: Frontend
-    skills:
-      - React & Next.js
-      - Svelte & SvelteKit
-      - Tailwind CSS
-      - Astro
+      - Asynchronous processing
+      - REST APIs
+      - PostgreSQL
+      - Microservices
+      - OpenTofu (IaC)
   - category: Infrastructure & Tooling
     skills:
-      - AWS
       - Docker
       - Linux
-      - Nginx
       - Git
+      - Nginx
   - category: Soft Skills
     skills:
-      - Leadership
+      - Ownership
       - Critical Thinking
       - Communication
-      - Public Speaking
+      - Collaboration
 
 languages:
 

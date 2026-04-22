@@ -1,0 +1,195 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jskherman/imprecv/main/cv.typ.schema.json
+
+personal:
+  name: Austin Scott Delic
+  email: austin@austindelic.com
+  phone: (+61) 402 919 111
+  url: https://austindelic.com
+  titles:
+    - Systems Development Engineer
+  location:
+    city: Perth
+    country: ""
+    region: Western Australia
+  profiles:
+    - network: LinkedIn
+      username: austindelic
+      url: https://linkedin.com/in/austindelic
+    - network: GitHub
+      username: austindelic
+      url: https://github.com/austindelic
+
+work:
+  - organization: AITAI - AI Institute
+    url: https://www.aitai.org.au
+    location: Perth, Western Australia
+    positions:
+      - position: LaunchLAB AI Cohort One '26
+        startDate: 2026-03-01
+        endDate: present
+        highlights:
+          - Selected for Cohort One of LaunchLAB AI '26, a competitive AI product accelerator run by the AI Institute of Australia.
+          - Building AI-native products with real-time inference pipelines, taking ownership of system architecture, reliability, and delivery end-to-end.
+  - organization: Scrypt Ventures
+    url: https://scrypt.com.au/
+    location: Remote
+    positions:
+      - position: Junior Software Engineer
+        startDate: 2026-03-01
+        endDate: present
+        highlights:
+          - Built and deployed backend services in a distributed system at a pharmaceutical software venture, contributing to system reliability, deployment workflows, and service scalability.
+          - Improved CI/CD pipelines and deployment workflows, debugging build failures and increasing deployment reliability in Linux environments.
+  - organization: Independent Contracting
+    location: Perth, Western Australia
+    positions:
+      - position: Software Engineer
+        startDate: 2026-01-01
+        endDate: 2026-03-01
+        highlights:
+          - Designed, deployed, and operated full-stack systems on AWS, managing infrastructure, containerisation, and production reliability for hundreds of active users.
+          - Automated infrastructure provisioning and deployments using Docker and Infrastructure-as-Code, reducing operational overhead through automation and scalable infrastructure design.
+  - organization: Lightbulb Skills
+    url: https://www.lightbulbskills.com.au
+    location: Perth, Western Australia
+    positions:
+      - position: Junior Software Engineer
+        startDate: 2024-10-01
+        endDate: 2025-12-23
+        highlights:
+          - Implemented and maintained a production CRM system, improving backend reliability, database performance, and deployment workflows in a live production environment.
+          - Debugged and resolved production issues using logs and system-level analysis, ensuring system stability and uptime.
+
+education:
+  - institution: Curtin University
+    url: https://www.curtin.edu.au
+    studyType: Computer Science Degree Major
+    startDate: 2026-02-01
+    endDate: 2029-10-01
+    location: Perth, Western Australia
+    highlights:
+
+  - institution: Curtin University
+    url: https://www.curtin.edu.au
+    studyType: Mechatronic Engineering Honours and Computer Science Double Degree (BEng Hons/BSc)
+    startDate: 2025-02-01
+    endDate: 2025-10-01
+    location: Perth, Western Australia
+    highlights:
+      - GPA 7.5 / 10.0, transferred to Computer Science after first year
+      - Dean's List, Letter of Commendation
+
+  - institution: Aquinas College
+    url: https://www.aquinas.wa.edu.au
+    studyType: "Western Australian Certificate of Education (WACE)"
+    startDate: 2016-02-01
+    endDate: 2024-10-01
+    location: Perth, Western Australia
+    highlights:
+      - Computer Science ATAR Dux
+
+affiliations:
+  - organization: Curtin Computer Science Students Association (ComSSA)
+    location: Perth, Western Australia, Australia
+    position: Sub-Committee Member
+    startDate: 2025-03-01
+    endDate: 2025-09-01
+    highlights:
+      - Built and maintained tooling and infrastructure for the association's events and online presence.
+
+awards:
+  - title: 3rd Place, VisagioX & Venture UWA Hackathon
+    date: 2026-04-12
+    issuer: VisagioX & Venture UWA
+    location: Perth, Western Australia
+    highlights:
+      - Built an on-device AI system detecting harmful conversation patterns in real time with no data leaving the device; owned architecture, implementation, and delivery end-to-end.
+  - title: Sponsored Participant, Hack48
+    date: 2025-12-10
+    issuer: Hack48
+    location: Sydney, New South Wales, Australia
+    highlights:
+      - Competitively sponsored to attend Hack48, a 48-hour hackathon uniting top student builders across Australia and internationally.
+      - Engineered a Braille conversion system to transform written content into tactile output for visually impaired users.
+  - title: Sponsored Participant, Hack Club Residency
+    date: 2025-06-01
+    issuer: Hack Club
+    location: San Francisco, California, United States
+    highlights:
+      - Sponsored for an international Hack Club residency in San Francisco; competed in the UC Berkeley AI Hackathon (Jun, Jul 2025).
+  - title: Most Innovative, ComSSA Hackathon
+    date: 2024-12-01
+    issuer: Curtin University / ComSSA
+    location: Perth, Western Australia
+
+projects:
+  - name: "AI Legal Document Platform"
+    affiliation: Personal Project
+    startDate: 2025-06-01
+    endDate: Present
+    highlights:
+      - Provisioned and operated a full-stack AI system for automated document classification in legal discovery; owned system architecture, AWS infrastructure, and deployment end-to-end.
+      - Built concurrent backend workers in Go for high-volume document processing, enabling fault-tolerant and scalable pipelines handling hundreds of tasks concurrently.
+      - Monitored and debugged processing pipelines to ensure reliability under load; improved system observability through structured logging.
+      - Provisioned and managed cloud infrastructure on AWS using Infrastructure-as-Code (OpenTofu), defining compute, storage, and processing pipelines for reproducible deployments.
+
+  - name: "Homelab Infrastructure (Self-Hosted Platform)"
+    affiliation: Personal Project
+    startDate: 2025-01-01
+    endDate: Present
+    highlights:
+      - Engineered and operated a self-hosted infrastructure platform using Docker, reverse proxies, and Linux-based systems running on local hardware.
+      - Configured networking, TLS, and secure service exposure using Cloudflare Tunnel, eliminating public attack surface across multiple containerised services.
+      - Automated service deployment and management across multiple containerised services, reducing manual operational overhead.
+
+  - name: "Still"
+    url: https://github.com/austindelic/still
+    affiliation: Open Source
+    startDate: 2024-12-01
+    endDate: Present
+    highlights:
+      - Engineered a Rust-based infrastructure CLI for deterministic, cross-platform dependency resolution and environment provisioning across macOS, Linux, and Windows.
+      - Designed a custom TOML specification with conditional logic and platform-aware build graphs; implemented a dependency resolver producing deterministic, reproducible output at scale.
+
+  - name: "Tactify (AI Document Processing System)"
+    affiliation: Personal Project
+    startDate: 2025-09-01
+    endDate: Present
+    highlights:
+      - Engineered a Go backend system handling AI processing pipelines with concurrent processing for performance, throughput, and low-latency output generation.
+      - Built data ingestion and transformation pipelines for unstructured document workloads with scalable, fault-tolerant architecture.
+
+skills:
+  - category: Systems & Infrastructure
+    skills:
+      - AWS (EC2, S3, Lambda)
+      - Docker
+      - Linux
+      - Nginx
+      - Cloudflare
+      - OpenTofu (IaC)
+      - Bash
+      - Git
+  - category: Programming
+    skills:
+      - Go
+      - Python
+      - Rust
+      - C / C++
+      - TypeScript / JavaScript
+      - SQL
+  - category: Systems Engineering
+    skills:
+      - Distributed systems
+      - CI/CD pipelines
+      - Automation
+      - Networking
+      - REST APIs
+      - PostgreSQL
+      - Monitoring and debugging
+
+languages:
+
+interests:
+
+references:

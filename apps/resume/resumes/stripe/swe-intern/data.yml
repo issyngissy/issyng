@@ -6,7 +6,7 @@ personal:
   phone: (+61) 402 919 111
   url: https://austindelic.com
   titles:
-    - Software Development Engineer
+    - Software Engineer
   location:
     city: Perth
     country: ""
@@ -29,7 +29,7 @@ work:
         endDate: present
         highlights:
           - Selected for Cohort One of LaunchLAB AI '26, a competitive AI product accelerator run by the AI Institute of Australia.
-          - Building AI-native products with ML model integration and real-time inference pipelines, taking ownership of system architecture and delivery end-to-end.
+          - Building AI-native products with ML model integration and real-time inference pipelines, iterating rapidly from concept to shipped product with industry mentors.
   - organization: Scrypt Ventures
     url: https://scrypt.com.au/
     location: Remote
@@ -38,8 +38,8 @@ work:
         startDate: 2026-03-01
         endDate: present
         highlights:
-          - Developing backend services on a distributed production system at a pharmaceutical software venture, collaborating with engineers across a distributed team.
-          - Taking ownership of backend features and contributing to system design decisions, code review, and deployment pipeline improvements alongside senior engineers.
+          - Engineering and shipping production features on a distributed pharmaceutical software system, participating in code review and design discussions with a remote team.
+          - Contributing to architecture decisions and deployment pipelines alongside senior engineers, incorporating feedback to iteratively improve code quality.
   - organization: Independent Contracting
     location: Perth, Western Australia
     positions:
@@ -47,8 +47,8 @@ work:
         startDate: 2026-01-01
         endDate: 2026-03-01
         highlights:
-          - Designed and shipped full-stack systems end-to-end, from backend architecture to deployment on AWS, serving hundreds of active users with full infrastructure ownership.
-          - Operated the full delivery lifecycle building and operating production systems, architecture, implementation, deployment, and post-launch reliability, as a solo engineer.
+          - Designed and shipped full-stack production systems end-to-end, serving hundreds of active users across Australia with full infrastructure ownership.
+          - Collaborated directly with clients to gather requirements, articulate technical tradeoffs, and ship reliable software on tight timelines.
   - organization: Lightbulb Skills
     url: https://www.lightbulbskills.com.au
     location: Perth, Western Australia
@@ -57,13 +57,13 @@ work:
         startDate: 2024-10-01
         endDate: 2025-12-23
         highlights:
-          - Architected and maintained a production CRM on Next.js, React, and PostgreSQL; owned schema design, asynchronous backend processing, and deployment end-to-end.
-          - Shipped iterative frontend and backend improvements with a focus on reliability and maintainability in a live production environment.
+          - Architected and maintained a production CRM on Next.js, React, and PostgreSQL; participated in code review cycles, shipping incremental improvements with feedback from senior engineers.
+          - Owned backend and frontend features from schema design through deployment, writing well-structured pull requests with test coverage in a live production environment.
 
 education:
   - institution: Curtin University
     url: https://www.curtin.edu.au
-    studyType: Computer Science Degree Major
+    studyType: Bachelor of Science, Computer Science
     startDate: 2026-02-01
     endDate: 2028-10-01
     location: Perth, Western Australia
@@ -95,7 +95,7 @@ affiliations:
     startDate: 2025-03-01
     endDate: 2025-09-01
     highlights:
-      - Built and maintained tooling and infrastructure for the association's events and online presence.
+      - Built and maintained tooling and infrastructure for the association's events and online presence, collaborating with a multi-person committee.
 
 awards:
   - title: 3rd Place, VisagioX & Venture UWA Hackathon
@@ -103,7 +103,7 @@ awards:
     issuer: VisagioX & Venture UWA
     location: Perth, Western Australia
     highlights:
-      - Built an on-device AI application detecting harmful conversation patterns in real time with no data leaving the device; owned the system end-to-end from architecture to delivery.
+      - Built an on-device AI application detecting harmful conversation patterns in real time with no data leaving the device; led architecture and shipped the full system within 24 hours.
   - title: Sponsored Participant, Hack48
     date: 2025-12-10
     issuer: Hack48
@@ -123,80 +123,79 @@ awards:
     location: Perth, Western Australia
 
 projects:
-  - name: "AI Legal Document Platform"
-    affiliation: Personal Project
-    startDate: 2025-06-01
-    endDate: Present
-    highlights:
-      - Built a full-stack AI system for automated document classification in legal discovery, designed to support real-world document workflows at scale; owned system architecture end-to-end.
-      - Developed asynchronous backend workers in Go for high-volume document classification pipelines with concurrent processing and fault-tolerant design.
-      - Provisioned and managed cloud infrastructure on AWS using Infrastructure-as-Code (OpenTofu), defining compute, storage, and data processing pipelines for reproducible deployments.
-
-  - name: "Tactify (AI Document Processing System)"
-    affiliation: Personal Project
-    startDate: 2025-09-01
-    endDate: Present
-    highlights:
-      - Engineered a full-stack system for converting documents into audio and sensory outputs, with a Go backend handling AI processing pipelines optimised for performance, throughput, and low-latency processing.
-      - Designed and implemented typed APIs using Connect-tRPC, enforcing contracts between frontend and backend services.
-      - Built data ingestion and transformation pipelines for unstructured document workloads with scalable architecture for real-time output generation.
-
-  - name: "Still"
+  - name: "Still (Cross-Platform Package Manager)"
     url: https://github.com/austindelic/still
     affiliation: Open Source
     startDate: 2024-12-01
     endDate: Present
     highlights:
-      - Engineered a Rust-based systems CLI for deterministic, cross-platform dependency resolution and environment reproducibility across macOS, Linux, and Windows.
-      - Designed a custom TOML specification with conditional logic and platform-aware build graphs; implemented a dependency resolver producing deterministic, reproducible output at scale.
+      - Building a Rust-based universal package manager targeting deterministic, cross-platform dependency resolution across macOS, Linux, and Windows; maintains a public open source repository with structured issue tracking and contribution workflow.
+      - Designed a custom TOML specification with conditional logic and platform-aware build graphs; implemented a dependency resolver with topological sort for reproducible, ordered execution.
+      - Built across multiple modules with clean separation of concerns, enabling independent testing and clear boundaries between parsing, resolution, and execution layers.
 
-  - name: "crib."
+  - name: "Real-Time Collaborative Task System"
     url: https://github.com/austindelic/crib
     affiliation: Open Source
     startDate: 2025-04-01
     endDate: Present
     highlights:
-      - Built a full-stack collaborative task manager using Svelte 5 (runes), SvelteKit, and PostgreSQL; designed data schema, API layer, and deployment end-to-end.
-      - Engineered real-time synchronisation across clients using server-sent events with fine-grained reactivity for a low-latency user experience.
+      - Built a full-stack multi-tiered application using Svelte 5, SvelteKit, and PostgreSQL with server-sent events for real-time state synchronisation across clients.
+      - Designed normalised relational schema with referential integrity and concurrent write handling; implemented optimistic concurrency control to prevent data races under simultaneous updates.
+      - Shipped with comprehensive unit and integration tests, structured pull request workflow, and clear documentation for contributors.
+
+  - name: "Distributed Document Processing Pipeline"
+    affiliation: Personal Project
+    startDate: 2025-06-01
+    endDate: Present
+    highlights:
+      - Built a distributed, multi-tiered backend service in Go with concurrent worker goroutines, fault-tolerant task queues, and typed API contracts using Connect-tRPC.
+      - Provisioned and managed cloud infrastructure on AWS (EC2, S3, RDS) using OpenTofu; containerised services with Docker for reproducible, environment-consistent deployments.
+
+  - name: "Tactify (Accessible Document AI)"
+    affiliation: Personal Project
+    startDate: 2025-09-01
+    endDate: Present
+    highlights:
+      - Engineered a high-throughput document transformation pipeline in Go handling unstructured inputs across multiple formats, with asynchronous processing and parallelised I/O-bound stages.
+      - Applied systematic profiling and optimisation to reduce end-to-end latency, identifying and fixing bottlenecks across the processing pipeline.
 
 skills:
-  - category: Core CS
-    skills:
-      - Data Structures
-      - Algorithms
-      - System Design
-      - Object-Oriented Programming
   - category: Languages
     skills:
-      - Python
       - Go
-      - Kotlin
       - TypeScript / JavaScript
+      - Python
       - Rust
       - C / C++
       - SQL
       - Bash
-  - category: Backend & Distributed Systems
+  - category: Backend and Systems
     skills:
-      - AWS (EC2, S3, Lambda)
       - Distributed systems
-      - Asynchronous processing
       - REST APIs
       - PostgreSQL
+      - Asynchronous processing
       - Microservices
-      - OpenTofu (IaC)
-  - category: Infrastructure & Tooling
+      - Connect-tRPC
+  - category: Frontend
     skills:
+      - React and Next.js
+      - Svelte and SvelteKit
+      - Tailwind CSS
+  - category: Cloud and Infrastructure
+    skills:
+      - AWS (EC2, S3, RDS, Lambda)
       - Docker
+      - OpenTofu (IaC)
       - Linux
-      - Git
       - Nginx
+      - Git
   - category: Soft Skills
     skills:
-      - Ownership
-      - Critical Thinking
-      - Communication
-      - Collaboration
+      - Code Review
+      - Technical Communication
+      - Cross-functional Collaboration
+      - Learning in Ambiguity
 
 languages:
 

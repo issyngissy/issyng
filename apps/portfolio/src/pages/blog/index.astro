@@ -6,7 +6,7 @@ import { sortMDByDate } from "../../utils";
 
 const allPosts = await getCollection("blog");
 
-const visiblePosts = allPosts.filter((post) => post.slug !== "example");
+const visiblePosts = allPosts.filter((post) => post.data.published !== false);
 const allPostsByDate = sortMDByDate(visiblePosts);
 ---
 

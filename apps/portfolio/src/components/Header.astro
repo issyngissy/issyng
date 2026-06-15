@@ -3,6 +3,7 @@ const { navbarActiveItemID } = Astro.props;
 const activeClasses = ["text-white", "opacity-100"];
 
 import { SquareArrowOutUpRight } from "lucide-react";
+import { withBase } from "../config";
 
 const links: Array<{
 	title: string;
@@ -14,20 +15,18 @@ const links: Array<{
 	{
 		title: "home",
 		id: "home",
-		url: "/",
+		url: withBase("/"),
 	},
 	{
 		title: "blog",
 		id: "blog",
-		url: "/blog",
+		url: withBase("/blog"),
 	},
 	{
 		title: "socials",
 		id: "socials",
-		url: "/socials",
+		url: withBase("/socials"),
 	},
-
-	{ title: "resume", id: "resume", url: "/resume.pdf" },
 ];
 ---
 
@@ -38,7 +37,7 @@ const links: Array<{
     class="flex flex-col lg:flex-row justify-between items-start lg:items-center"
   >
     <span class="mb-4 lg:mb-0">
-      <a href="/" target="_self" class="text-white font-medium text-md">
+      <a href={withBase("/")} target="_self" class="text-white font-medium text-md">
         <span id="perth-time">--:--</span>
       </a>
     </span>
@@ -77,9 +76,11 @@ const links: Array<{
 >
   const activeItemElement = document.getElementById(navbarActiveItemID);
 
-  activeClasses.forEach((activeClass) => {
-    activeItemElement.classList.add(activeClass);
-  });
+  if (activeItemElement) {
+    activeClasses.forEach((activeClass) => {
+      activeItemElement.classList.add(activeClass);
+    });
+  }
 
   function updatePerthTime() {
       const now = new Date();

@@ -2,21 +2,27 @@
 
 import { getCollection } from "astro:content";
 import PostPreview from "../components/PostPreview.astro";
+import {
+	CONTACT_EMAIL,
+	GITHUB_URL,
+	REPOSITORY_URL,
+	SITE_BASE,
+	SITE_OWNER,
+	SITE_URL,
+} from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { sortMDByDate } from "../utils";
 const allPosts = await getCollection("blog");
-const visiblePosts = allPosts.filter((post) => post.slug !== "example");
+const visiblePosts = allPosts.filter((post) => post.data.published !== false);
 const allPostsByDate = sortMDByDate(visiblePosts);
 
 const techStack: Record<string, string> = {
 	ts: "TypeScript",
 	python: "Python",
-	postgres: "Postgres",
 	astro: "Astro",
-	svelte: "Svelte",
-	next: "Next.js",
+	react: "React",
 	tailwind: "Tailwind",
-	rust: "Rust",
+	git: "Git",
 };
 
 const projects: Array<{
@@ -26,16 +32,16 @@ const projects: Array<{
 	icon: string;
 }> = [
 	{
-		title: "Still",
-		description: "Universal Package Manager and Version Manager (Mise + Brew)",
-		icon: "📦",
-		link: "https://github.com/austindelic/still",
+		title: "GitHub",
+		description: "Project index and code experiments",
+		icon: "⌘",
+		link: GITHUB_URL,
 	},
 	{
-		title: "crib.",
-		description: "Shared living managment webapp",
-		link: "https://github.com/austindelic/crib",
-		icon: "🏠",
+		title: "Portfolio Site",
+		description: "Astro portfolio deployed with GitHub Pages",
+		link: REPOSITORY_URL,
+		icon: "▣",
 	},
 ];
 ---
@@ -55,7 +61,7 @@ const projects: Array<{
             <div class="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
           <span class="text-gray-400 text-xs ml-2"
-            >$ xh austindelic.com</span
+            >$ xh {new URL(SITE_URL).host}{SITE_BASE}</span
           >
         </div>
         <!-- Content -->
@@ -64,9 +70,9 @@ const projects: Array<{
             <div class="flex items-center gap-4 mb-4">
               <p class="text-3xl">🌱</p>
               <div class="flex flex-col">
-                <h1 class="text-primary text-xl">Austin Delic</h1>
+                <h1 class="text-primary text-xl">{SITE_OWNER}</h1>
                 <p class="text-gray-400 text-xs">
-                  Builder. Engineer. Founder.
+                  Developer. Builder. Student.
                 </p>
               </div>
             </div>
@@ -74,7 +80,7 @@ const projects: Array<{
             <!-- Personal paragraph -->
             <div class="bg-gray-500/10 rounded-lg p-3 mb-4">
               <p class="text-gray-200 leading-relaxed">
-                Shipping since 2024. Currently studying Mechatronic Engineering and Computer Science while building products in Rust, TypeScript and Svelte.
+                I am building a focused portfolio for projects, notes, and ways to get in touch. Current work centers on practical web projects, clean interfaces, and reliable deployment workflows.
               </p>
             </div>
 
@@ -88,22 +94,14 @@ const projects: Array<{
             <div class="flex">
               <span class="text-gray-400 w-36 shrink-0">Work</span>
               <span class="text-white">
-                Student, Contractor
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-cyan-600 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 focus:ring-offset-gray-900"
-                  href="austindelic.com"
-                  aria-label="Visit your company website"
-                  ></a
-                >
+                Developer
               </span>
             </div>
 
             <div class="flex">
               <span class="text-gray-400 w-36 shrink-0">Interests</span>
               <span class="text-white"
-              >Open Source, Startup</span
+              >Web, tooling, creative technology</span
               >
             </div>
 
@@ -112,8 +110,8 @@ const projects: Array<{
               <span class="text-white">
                 <a
                   class="text-cyan-600 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 focus:ring-offset-gray-900"
-                  href="mailto:austin@austindelic.com"
-                  aria-label="Send email to austin@ausindelic.com">austin@austindelic.com</a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  aria-label={`Send email to ${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a
                 >
               </span>
             </div>

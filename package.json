@@ -1,5 +1,5 @@
 {
-  "name": "austindelic",
+  "name": "issyng",
   "private": true,
   "scripts": {
     "build": "turbo run build",

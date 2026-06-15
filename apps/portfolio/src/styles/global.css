@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Departure Mono";
-  src: url("/fonts/DepartureMono-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/DepartureMono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "DSEG14Modern";
-  src: url("/fonts/DSEG14Modern-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/DSEG14Modern-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

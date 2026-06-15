@@ -62,6 +62,7 @@ const formatCarouselCaption = (image: string) => {
 
 	return image
 		.replace(/\.[^.]+$/, "")
+		.replace(/["“”]+/g, "")
 		.replace(/\s+-\s+/g, ` ${separatorToken} `)
 		.replace(/[-_]+/g, " ")
 		.replaceAll(separatorToken, "-")

@@ -112,7 +112,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/")
 	: `${import.meta.env.BASE_URL}/`;
 
 const carouselImagePath = (image: string) =>
-	`${basePath}carousel/${encodeURIComponent(image)}`;
+	`${basePath}carousel/${encodeURI(image).replaceAll("#", "%23")}`;
 ---
 
 <BaseLayout navbarActiveItemID="home">
@@ -509,7 +509,21 @@ const carouselImagePath = (image: string) =>
     .photo-rail__item {
       flex: 0 0 auto;
       cursor: zoom-in;
+      display: flex;
+      flex-direction: column;
       transform-origin: center right;
+    }
+
+    .photo-rail__image-frame {
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+    }
+
+    .photo-rail__image {
+      width: auto;
+      max-width: 100%;
+      max-height: clamp(12rem, 34vh, 22rem);
     }
 
     .photo-rail__item:hover,

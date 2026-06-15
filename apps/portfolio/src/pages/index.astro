@@ -126,13 +126,13 @@ const carouselImagePath = (image: string) =>
 
             <div class="border-b border-gray-600 w-full mb-2"></div>
 
-            <div class="flex">
-              <span class="text-gray-400 w-36 shrink-0">Location</span>
+            <div class="flex flex-col gap-1 sm:flex-row">
+              <span class="text-gray-400 sm:w-36 shrink-0">Location</span>
               <span class="text-white">Perth, Australia 🇦🇺</span>
             </div>
 
-            <div class="flex">
-              <span class="text-gray-400 w-36 shrink-0">Work</span>
+            <div class="flex flex-col gap-1 sm:flex-row">
+              <span class="text-gray-400 sm:w-36 shrink-0">Work</span>
               <span class="text-white">
                 Founder,
                 <a
@@ -146,15 +146,15 @@ const carouselImagePath = (image: string) =>
               </span>
             </div>
 
-            <div class="flex">
-              <span class="text-gray-400 w-36 shrink-0">Interests</span>
+            <div class="flex flex-col gap-1 sm:flex-row">
+              <span class="text-gray-400 sm:w-36 shrink-0">Interests</span>
               <span class="text-white"
               >SME growth, AI automation, product, finance</span
               >
             </div>
 
-            <div class="flex">
-              <span class="text-gray-400 w-36 shrink-0">Contact</span>
+            <div class="flex flex-col gap-1 sm:flex-row">
+              <span class="text-gray-400 sm:w-36 shrink-0">Contact</span>
               <span class="text-white">
                 <a
                   class="text-cyan-600 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 focus:ring-offset-gray-900"
@@ -165,8 +165,8 @@ const carouselImagePath = (image: string) =>
             </div>
 
             <div class="flex">
-              <div class="flex items-center">
-                <span class="text-gray-400 w-36 shrink-0">Focus</span>
+              <div class="flex flex-col gap-1 sm:flex-row sm:items-center">
+                <span class="text-gray-400 sm:w-36 shrink-0">Focus</span>
                 <div class="flex flex-wrap gap-2" role="list" aria-label="Focus areas">
                   {
                     Object.keys(techStack).map((lang) => (
@@ -241,24 +241,49 @@ const carouselImagePath = (image: string) =>
         <h2 id="photos-heading" class="photo-section__title">photos</h2>
       </div>
 
-      <div class="photo-carousel" aria-label="Photo carousel">
-        <div class="photo-carousel__track">
-          {
-            carouselImages.map(({ file, caption }) => (
-              <figure class="photo-carousel__item" tabindex="0">
-                <img
-                  src={carouselImagePath(file)}
-                  alt={caption}
-                  loading="lazy"
-                  decoding="async"
-                  class="photo-carousel__image"
-                />
-                <figcaption class="photo-carousel__caption">
-                  {caption}
-                </figcaption>
-              </figure>
-            ))
-          }
+      <div class="photo-rail" aria-label="Photo carousel">
+        <div class="photo-rail__track">
+          <div class="photo-rail__group">
+            {
+              carouselImages.map(({ file, caption }) => (
+                <figure class="photo-rail__item" tabindex="0">
+                  <span class="photo-rail__image-frame">
+                    <img
+                      src={carouselImagePath(file)}
+                      alt={caption}
+                      loading="lazy"
+                      decoding="async"
+                      class="photo-rail__image"
+                    />
+                  </span>
+                  <figcaption class="photo-rail__caption">
+                    {caption}
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+
+          <div class="photo-rail__group photo-rail__group--duplicate" aria-hidden="true">
+            {
+              carouselImages.map(({ file, caption }) => (
+                <figure class="photo-rail__item" tabindex="-1">
+                  <span class="photo-rail__image-frame">
+                    <img
+                      src={carouselImagePath(file)}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      class="photo-rail__image"
+                    />
+                  </span>
+                  <figcaption class="photo-rail__caption">
+                    {caption}
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>
@@ -293,7 +318,7 @@ const carouselImagePath = (image: string) =>
     font-weight: 700;
   }
 
-  .photo-carousel {
+  .photo-rail {
     overflow-x: auto;
     overflow-y: visible;
     width: 100%;
@@ -304,27 +329,35 @@ const carouselImagePath = (image: string) =>
     scrollbar-width: thin;
   }
 
-  .photo-carousel::-webkit-scrollbar {
+  .photo-rail::-webkit-scrollbar {
     height: 0.5rem;
   }
 
-  .photo-carousel::-webkit-scrollbar-track {
+  .photo-rail::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  .photo-carousel::-webkit-scrollbar-thumb {
+  .photo-rail::-webkit-scrollbar-thumb {
     background: rgb(34 211 238 / 28%);
     border-radius: 999px;
   }
 
-  .photo-carousel__track {
+  .photo-rail__track {
     display: flex;
     width: max-content;
-    gap: 1rem;
     align-items: stretch;
   }
 
-  .photo-carousel__item {
+  .photo-rail__group {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .photo-rail__group--duplicate {
+    display: none;
+  }
+
+  .photo-rail__item {
     position: relative;
     z-index: 0;
     flex: 0 0 clamp(11rem, 18vw, 17rem);
@@ -338,38 +371,46 @@ const carouselImagePath = (image: string) =>
       filter 180ms ease;
   }
 
-  .photo-carousel__item:hover,
-  .photo-carousel__item:focus {
+  .photo-rail__item:hover,
+  .photo-rail__item:focus {
     z-index: 10;
     outline: 0;
     transform: translateY(-0.55rem) scale(1.1);
     opacity: 1;
   }
 
-  .photo-carousel__item:focus-visible {
+  .photo-rail__item:focus-visible {
     outline: 2px solid rgb(34 211 238 / 70%);
     outline-offset: 0.35rem;
     border-radius: 0.5rem;
   }
 
-  .photo-carousel__image {
+  .photo-rail__image-frame {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 5;
     border: 1px solid rgb(255 255 255 / 14%);
     border-radius: 0.5rem;
-    object-fit: cover;
-    opacity: 0.78;
+    overflow: hidden;
+    background: rgb(0 0 0 / 40%);
     box-shadow: 0 18px 45px rgb(0 0 0 / 36%);
   }
 
-  .photo-carousel__item:hover .photo-carousel__image,
-  .photo-carousel__item:focus .photo-carousel__image {
+  .photo-rail__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.82;
+  }
+
+  .photo-rail__item:hover .photo-rail__image,
+  .photo-rail__item:focus .photo-rail__image {
     opacity: 1;
     filter: saturate(1.1);
   }
 
-  .photo-carousel__caption {
+  .photo-rail__caption {
     margin-top: 0.65rem;
     min-height: 2.4rem;
     color: rgb(209 213 219);
@@ -377,20 +418,124 @@ const carouselImagePath = (image: string) =>
     line-height: 1.3;
   }
 
+  @media (min-width: 1180px) {
+    .photo-section {
+      position: fixed;
+      top: 1rem;
+      right: clamp(0.75rem, 2vw, 2rem);
+      bottom: 1rem;
+      width: clamp(12rem, 18vw, 20rem);
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+
+    .photo-section__header {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .photo-rail {
+      height: 100%;
+      overflow: hidden;
+      padding: 0;
+      scroll-snap-type: none;
+      scrollbar-width: none;
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        black 6%,
+        black 94%,
+        transparent 100%
+      );
+    }
+
+    .photo-rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .photo-rail__track {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      animation: photo-rail-scroll 72s linear infinite;
+      will-change: transform;
+    }
+
+    .photo-rail:hover .photo-rail__track,
+    .photo-rail:focus-within .photo-rail__track {
+      animation-play-state: paused;
+    }
+
+    .photo-rail__group,
+    .photo-rail__group--duplicate {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      padding-bottom: 0.9rem;
+    }
+
+    .photo-rail__item {
+      flex: 0 0 auto;
+      cursor: zoom-in;
+      transform-origin: center right;
+    }
+
+    .photo-rail__item:hover,
+    .photo-rail__item:focus {
+      transform: translateX(-0.4rem) scale(1.04);
+    }
+
+    .photo-rail__caption {
+      min-height: 0;
+      font-size: 0.68rem;
+    }
+  }
+
   @media (max-width: 640px) {
-    .photo-carousel {
+    #about p,
+    #about span,
+    #about a,
+    #experience p {
+      overflow-wrap: anywhere;
+    }
+
+    .photo-rail {
       padding-inline: 1rem;
       scroll-padding-inline: 1rem;
     }
 
-    .photo-carousel__item {
+    .photo-rail__item {
       flex-basis: clamp(9rem, 62vw, 13rem);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .photo-carousel__item {
+    .photo-rail__track,
+    .photo-rail__item {
+      animation: none;
       transition: none;
+    }
+
+    .photo-rail__group--duplicate {
+      display: none;
+    }
+  }
+
+  @keyframes photo-rail-scroll {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-50%);
     }
   }
 </style>

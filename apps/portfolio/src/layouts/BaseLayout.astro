@@ -22,7 +22,7 @@ const {
 
     <BaseHead title={title} description={description} image={image} />
   </head>
-  <body class="relative min-h-screen font-Departure text-gray-400 dark selection:bg-cyan-700 selection:text-white">
+  <body class="relative min-h-screen overflow-x-hidden font-Departure text-gray-400 dark selection:bg-cyan-700 selection:text-white">
 
   <!-- Background layer -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -39,7 +39,7 @@ const {
   </div>
 
   <!-- Foreground content -->
-  <div class="relative z-10 xl:w-220 lg:w-4/5 w-full md:px-4 mx-auto">
+  <div class="site-shell relative z-10 w-full md:px-4">
   <div
     class="
       mt-6 rounded-2xl
@@ -62,3 +62,25 @@ const {
 
 </body>
 </html>
+
+<style>
+  .site-shell {
+    width: min(100%, calc(100vw - 3rem));
+    max-width: 55rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media (min-width: 768px) {
+    .site-shell {
+      width: min(100%, calc(100vw - 2rem));
+    }
+  }
+
+  @media (min-width: 1180px) {
+    .site-shell {
+      max-width: min(55rem, calc(100vw - 24rem));
+      transform: translateX(clamp(-5rem, -4vw, -2.5rem));
+    }
+  }
+</style>

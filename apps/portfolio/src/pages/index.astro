@@ -14,12 +14,73 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const techStack: Record<string, string> = {
 	web: "Website creation",
 	seo: "SEO",
-	ads: "Meta ads",
+	ads: "Google and Meta ads",
 	video: "Videography",
 	ai: "AI automations",
 	crm: "CRM workflows",
+	product: "Product validation",
 	sales: "Outbound sales",
+	finance: "Financial analysis",
 };
+
+const experiences: Array<{
+	role: string;
+	company: string;
+	dates: string;
+	location?: string;
+	summary: string;
+	bullets: string[];
+	tags: string[];
+}> = [
+	{
+		role: "Founder",
+		company: BUSINESS_NAME,
+		dates: "Mar 2026 - Present",
+		summary:
+			"Helping Perth SMEs grow their online presence through practical marketing systems.",
+		bullets: [
+			"Work directly with business owners on website development, SEO, Google Ads and Meta ads.",
+			"Create content and digital marketing assets for small businesses that need clearer online acquisition.",
+		],
+		tags: ["Web Development", "Digital Marketing", "SEO", "Paid Ads"],
+	},
+	{
+		role: "Sales & AI Automations",
+		company: "GoFlo Solutions",
+		dates: "Aug 2025 - Feb 2026",
+		summary:
+			"Built and sold AI-driven automation systems for small businesses.",
+		bullets: [
+			"Developed custom software integrations across Google Workspace, Microsoft Office and APIs.",
+			"Led technical implementation, workflow design and client discovery for automation opportunities.",
+		],
+		tags: ["Artificial Intelligence", "IT Consulting", "Workflow Design"],
+	},
+	{
+		role: "Co-Founder",
+		company: "SkinAI",
+		dates: "Apr 2025 - Aug 2025",
+		summary:
+			"Led product development, strategy and market validation for an AI skincare recommendation tool.",
+		bullets: [
+			"Worked on a simpler way for men to understand and improve their skin through personalised recommendations.",
+			"Combined facial analysis, user input and dermatologist-backed logic into the product direction.",
+		],
+		tags: ["Founder", "Product Management", "Market Validation"],
+	},
+	{
+		role: "Financial Analyst",
+		company: "Dradgin",
+		dates: "Jun 2024 - Mar 2025",
+		location: "Perth, Western Australia",
+		summary:
+			"Built investment models in the commercial property industry.",
+		bullets: [
+			"Created financial analysis and modelling work to support commercial property investment decisions.",
+		],
+		tags: ["Financial Analysis", "Investment Modelling"],
+	},
+];
 
 const projects: Array<{
 	title: string;
@@ -82,7 +143,7 @@ const projects: Array<{
             <!-- Personal paragraph -->
             <div class="bg-gray-500/10 rounded-lg p-3 mb-4">
               <p class="text-gray-200 leading-relaxed">
-                I am a commerce student and founder of Render Marketing, building websites, AI automations, CRM workflows and marketing systems for small businesses in Perth.
+                I am a commerce student and founder of Render Marketing. My work has moved across SME marketing, AI automation, product validation and commercial property analysis.
               </p>
             </div>
 
@@ -111,7 +172,7 @@ const projects: Array<{
             <div class="flex">
               <span class="text-gray-400 w-36 shrink-0">Interests</span>
               <span class="text-white"
-              >SME growth, AI automation, sales, finance</span
+              >SME growth, AI automation, product, finance</span
               >
             </div>
 
@@ -148,6 +209,74 @@ const projects: Array<{
 
         <div class="mt-3 pt-2 border-t border-gray-700 text-gray-500 text-xs">
           <span class="text-gray-400">$</span> bat about.txt
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="mt-2">
+      <div
+        class="bg-black/20 border border-gray-700 rounded font-mono text-sm text-gray-300 p-6"
+        role="region"
+        aria-label="Experience timeline"
+      >
+        <h2 class="mb-4 text-sm font-bold text-gray-500">
+          🧭 major experiences
+        </h2>
+        <div class="space-y-4" role="list">
+          {
+            experiences.map((experience, index) => (
+              <article
+                class="group border-b border-gray-700/70 pb-4 last:border-b-0 last:pb-0"
+                role="listitem"
+              >
+                <div class="flex items-start gap-2">
+                  <span class="text-gray-400 w-6 shrink-0" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}.
+                  </span>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                      <div>
+                        <h3 class="text-white font-semibold">
+                          {experience.role}
+                        </h3>
+                        <p class="text-cyan-300">{experience.company}</p>
+                      </div>
+                      <p class="text-gray-500 text-xs">{experience.dates}</p>
+                    </div>
+
+                    {experience.location ? (
+                      <p class="mt-1 text-gray-500 text-xs">
+                        {experience.location}
+                      </p>
+                    ) : null}
+
+                    <p class="mt-2 text-gray-200 leading-relaxed">
+                      {experience.summary}
+                    </p>
+
+                    <ul class="mt-2 space-y-1" aria-label={`${experience.company} highlights`}>
+                      {experience.bullets.map((bullet) => (
+                        <li class="text-gray-400 leading-relaxed">
+                          <span class="text-gray-600">-</span> {bullet}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div class="mt-2 flex flex-wrap gap-2" aria-label={`${experience.company} skills`}>
+                      {experience.tags.map((tag) => (
+                        <span class="text-gray-500 text-xs">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+        <div class="mt-3 pt-2 border-t border-gray-700 text-gray-500 text-xs">
+          <span class="text-gray-400">$</span> eza -la experience/ | total {
+            experiences.length
+          }
         </div>
       </div>
     </section>

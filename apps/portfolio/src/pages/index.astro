@@ -69,13 +69,41 @@ const formatCarouselCaption = (image: string) => {
 		.trim();
 };
 
+const monthIndexes: Record<string, number> = {
+	jan: 0,
+	feb: 1,
+	mar: 2,
+	apr: 3,
+	may: 4,
+	jun: 5,
+	jul: 6,
+	aug: 7,
+	sep: 8,
+	oct: 9,
+	nov: 10,
+	dec: 11,
+};
+
+const getCarouselDateRank = (image: string) => {
+	const match = image.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{2})\b/i);
+	if (!match) return Number.POSITIVE_INFINITY;
+
+	const month = monthIndexes[match[1].toLowerCase()];
+	const year = 2000 + Number(match[2]);
+
+	return year * 12 + month;
+};
+
 const carouselImages = readdirSync(
 	new URL("../../public/carousel", import.meta.url),
 )
 	.filter((image) => /\.(avif|jpe?g|png|webp)$/i.test(image))
-	.sort((a, b) =>
-		a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }),
-	)
+	.sort((a, b) => {
+		const dateDifference = getCarouselDateRank(a) - getCarouselDateRank(b);
+		if (dateDifference !== 0) return dateDifference;
+
+		return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
+	})
 	.map((image) => ({
 		file: image,
 		caption: formatCarouselCaption(image),
@@ -236,12 +264,12 @@ const carouselImagePath = (image: string) =>
   </div>
 
   <Fragment slot="full-width">
-    <section id="photos" class="photo-section" aria-labelledby="photos-heading">
+    <section id="timeline" class="photo-section" aria-labelledby="timeline-heading">
       <div class="photo-section__header">
-        <h2 id="photos-heading" class="photo-section__title">photos</h2>
+        <h2 id="timeline-heading" class="photo-section__title">timeline</h2>
       </div>
 
-      <div class="photo-rail" aria-label="Photo carousel">
+      <div class="photo-rail" aria-label="Timeline carousel">
         <div class="photo-rail__track">
           <div class="photo-rail__group">
             {
@@ -423,24 +451,23 @@ const carouselImagePath = (image: string) =>
       bottom: 1rem;
       left: calc(50vw + clamp(21rem, 25vw, 23rem));
       width: clamp(12rem, 17vw, 20rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
       margin: 0;
       padding: 0;
       background: none;
     }
 
     .photo-section__header {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+      width: 100%;
+      margin: 0;
+      padding: 0 0.15rem;
     }
 
     .photo-rail {
+      flex: 1;
+      min-height: 0;
       height: 100%;
       overflow: hidden;
       padding: 0;

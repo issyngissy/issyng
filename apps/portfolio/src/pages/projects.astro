@@ -235,12 +235,14 @@ const formatDate = (date: string) =>
 	new Intl.DateTimeFormat("en-AU", {
 		month: "short",
 		year: "numeric",
+		timeZone: "Australia/Perth",
 	}).format(new Date(date));
 
 const syncLabel = new Intl.DateTimeFormat("en-AU", {
 	day: "2-digit",
 	month: "short",
 	year: "numeric",
+	timeZone: "Australia/Perth",
 }).format(new Date());
 ---
 

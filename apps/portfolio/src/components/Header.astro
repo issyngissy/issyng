@@ -23,6 +23,11 @@ const links: Array<{
 		url: withBase("/socials"),
 	},
 	{
+		title: "projects",
+		id: "projects",
+		url: withBase("/projects"),
+	},
+	{
 		title: "resume",
 		id: "resume",
 		url: withBase("/resume.pdf"),
@@ -41,7 +46,7 @@ const links: Array<{
         <span id="perth-time">--:--</span>
       </a>
     </span>
-    <span class="flex flex-wrap gap-6 text-sm">
+    <span class="flex flex-wrap gap-x-4 gap-y-2 text-sm sm:gap-6">
       {
         links.map((link) => {
           const isActive = link.id === navbarActiveItemID;

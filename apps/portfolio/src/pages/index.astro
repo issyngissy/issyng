@@ -3,11 +3,7 @@ import {
 	BUSINESS_NAME,
 	BUSINESS_URL,
 	CONTACT_EMAIL,
-	GITHUB_URL,
-	SITE_BASE,
 	SITE_OWNER,
-	SITE_URL,
-	withBase,
 } from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -27,84 +23,36 @@ const experiences: Array<{
 	role: string;
 	company: string;
 	dates: string;
-	location?: string;
 	summary: string;
-	bullets: string[];
 	tags: string[];
 }> = [
 	{
 		role: "Founder",
 		company: BUSINESS_NAME,
 		dates: "Mar 2026 - Present",
-		summary:
-			"Helping Perth SMEs grow their online presence through practical marketing systems.",
-		bullets: [
-			"Work directly with business owners on website development, SEO, Google Ads and Meta ads.",
-			"Create content and digital marketing assets for small businesses that need clearer online acquisition.",
-		],
-		tags: ["Web Development", "Digital Marketing", "SEO", "Paid Ads"],
+		summary: "I help Perth small businesses look sharper online and turn traffic into leads.",
+		tags: ["Websites", "SEO", "Google Ads", "Meta Ads"],
 	},
 	{
 		role: "Sales & AI Automations",
 		company: "GoFlo Solutions",
 		dates: "Aug 2025 - Feb 2026",
-		summary:
-			"Built and sold AI-driven automation systems for small businesses.",
-		bullets: [
-			"Developed custom software integrations across Google Workspace, Microsoft Office and APIs.",
-			"Led technical implementation, workflow design and client discovery for automation opportunities.",
-		],
-		tags: ["Artificial Intelligence", "IT Consulting", "Workflow Design"],
+		summary: "I sold and built AI automations that cleaned up admin-heavy workflows.",
+		tags: ["AI", "APIs", "Workflow Design"],
 	},
 	{
 		role: "Co-Founder",
 		company: "SkinAI",
 		dates: "Apr 2025 - Aug 2025",
-		summary:
-			"Led product development, strategy and market validation for an AI skincare recommendation tool.",
-		bullets: [
-			"Worked on a simpler way for men to understand and improve their skin through personalised recommendations.",
-			"Combined facial analysis, user input and dermatologist-backed logic into the product direction.",
-		],
-		tags: ["Founder", "Product Management", "Market Validation"],
+		summary: "I worked on an AI skincare product and learned how to test a market before overbuilding.",
+		tags: ["Product", "Validation", "Strategy"],
 	},
 	{
 		role: "Financial Analyst",
 		company: "Dradgin",
 		dates: "Jun 2024 - Mar 2025",
-		location: "Perth, Western Australia",
-		summary:
-			"Built investment models in the commercial property industry.",
-		bullets: [
-			"Created financial analysis and modelling work to support commercial property investment decisions.",
-		],
-		tags: ["Financial Analysis", "Investment Modelling"],
-	},
-];
-
-const projects: Array<{
-	title: string;
-	description: string;
-	link: string;
-	icon: string;
-}> = [
-	{
-		title: BUSINESS_NAME,
-		description: "Websites, SEO, content and paid ads for small businesses",
-		icon: "◈",
-		link: BUSINESS_URL,
-	},
-	{
-		title: "Resume",
-		description: "2026 resume PDF",
-		link: withBase("/resume.pdf"),
-		icon: "▤",
-	},
-	{
-		title: "GitHub",
-		description: "Portfolio source and project work",
-		icon: "⌘",
-		link: GITHUB_URL,
+		summary: "I built commercial property investment models and got a practical base in finance.",
+		tags: ["Finance", "Modelling", "Property"],
 	},
 ];
 ---
@@ -123,9 +71,6 @@ const projects: Array<{
             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div class="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <span class="text-gray-400 text-xs ml-2"
-            >$ xh {new URL(SITE_URL).host}{SITE_BASE}</span
-          >
         </div>
         <!-- Content -->
         <div class="text-xs">
@@ -207,9 +152,6 @@ const projects: Array<{
           </div>
         </div>
 
-        <div class="mt-3 pt-2 border-t border-gray-700 text-gray-500 text-xs">
-          <span class="text-gray-400">$</span> bat about.txt
-        </div>
       </div>
     </section>
 
@@ -219,50 +161,33 @@ const projects: Array<{
         role="region"
         aria-label="Experience timeline"
       >
-        <h2 class="mb-4 text-sm font-bold text-gray-500">
-          🧭 major experiences
-        </h2>
-        <div class="space-y-4" role="list">
+        <h2 class="mb-4 text-sm font-bold text-gray-500">🧭 key experiences</h2>
+        <div class="space-y-2" role="list">
           {
             experiences.map((experience, index) => (
               <article
-                class="group border-b border-gray-700/70 pb-4 last:border-b-0 last:pb-0"
+                class="group hover:bg-gray-800/50 p-2 rounded transition-colors"
                 role="listitem"
               >
-                <div class="flex items-start gap-2">
+                <div class="flex items-start gap-3">
                   <span class="text-gray-400 w-6 shrink-0" aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}.
                   </span>
                   <div class="min-w-0 flex-1">
                     <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                      <div>
-                        <h3 class="text-white font-semibold">
-                          {experience.role}
-                        </h3>
-                        <p class="text-cyan-300">{experience.company}</p>
-                      </div>
-                      <p class="text-gray-500 text-xs">{experience.dates}</p>
+                      <h3 class="text-white font-semibold">
+                        {experience.role}
+                        <span class="text-gray-500"> @ </span>
+                        <span class="text-cyan-300">{experience.company}</span>
+                      </h3>
+                      <span class="text-gray-500 text-xs">{experience.dates}</span>
                     </div>
 
-                    {experience.location ? (
-                      <p class="mt-1 text-gray-500 text-xs">
-                        {experience.location}
-                      </p>
-                    ) : null}
-
-                    <p class="mt-2 text-gray-200 leading-relaxed">
+                    <p class="mt-1 text-gray-300 leading-relaxed">
                       {experience.summary}
                     </p>
 
-                    <ul class="mt-2 space-y-1" aria-label={`${experience.company} highlights`}>
-                      {experience.bullets.map((bullet) => (
-                        <li class="text-gray-400 leading-relaxed">
-                          <span class="text-gray-600">-</span> {bullet}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div class="mt-2 flex flex-wrap gap-2" aria-label={`${experience.company} skills`}>
+                    <div class="mt-1 flex flex-wrap gap-2" aria-label={`${experience.company} skills`}>
                       {experience.tags.map((tag) => (
                         <span class="text-gray-500 text-xs">{tag}</span>
                       ))}
@@ -271,95 +196,6 @@ const projects: Array<{
                 </div>
               </article>
             ))
-          }
-        </div>
-        <div class="mt-3 pt-2 border-t border-gray-700 text-gray-500 text-xs">
-          <span class="text-gray-400">$</span> eza -la experience/ | total {
-            experiences.length
-          }
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="mt-2">
-      <div
-        class="bg-black/20 border border-gray-700 rounded font-mono text-sm text-gray-300 p-6"
-        role="region"
-        aria-label="Project showcase"
-      >
-        <h2 class="mb-4 text-sm font-bold text-gray-500">💻 featured links</h2>
-        <div class="space-y-2" role="list">
-          {
-            projects.map((project, index) => (
-              <div
-                class="group hover:bg-gray-800/50 p-1 rounded transition-colors"
-                role="listitem"
-              >
-                {project.link ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 focus:ring-offset-gray-900 rounded"
-                    aria-label={`Visit ${project.title}: ${project.description}`}
-                  >
-                    <div class="flex items-start gap-2">
-                      <span
-                        class="text-gray-400 w-6 shrink-0"
-                        aria-hidden="true"
-                      >
-                        {String(index + 1).padStart(2, "0")}.
-                      </span>
-                      <span
-                        class="text-yellow-360 shrink-0"
-                        role="img"
-                        aria-label="Project icon"
-                      >
-                        {project.icon}
-                      </span>
-                      <div class="min-w-0 flex-1">
-                        <span class="text-white group-hover:text-cyan-300 font-semibold">
-                          {project.title}
-                        </span>
-                        <span class="text-gray-500 ml-2">
-                          → {project.description}
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                ) : (
-                  <div
-                    class="flex items-start gap-2 opacity-60"
-                    aria-label={`${project.title}: ${project.description} (Coming soon)`}
-                  >
-                    <span class="text-gray-400 w-6 shrink-0" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}.
-                    </span>
-                    <span
-                      class="text-yellow-360 shrink-0"
-                      role="img"
-                      aria-label="Project icon"
-                    >
-                      {project.icon}
-                    </span>
-                    <div class="min-w-0 flex-1">
-                      <span class="text-white font-semibold">
-                        {project.title}
-                      </span>
-                      <span class="text-gray-500 ml-2">
-                        → {project.description}
-                      </span>
-                      <span class="text-gray-600 ml-2">[coming soon]</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))
-          }
-        </div>
-        <div class="mt-3 pt-2 border-t border-gray-700 text-gray-500 text-xs">
-          <span class="text-gray-400">$</span> eza -la projects/ | total {
-            projects.length
           }
         </div>
       </div>

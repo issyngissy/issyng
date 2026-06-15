@@ -63,7 +63,11 @@ const carouselImages = readdirSync(
 	.filter((image) => /\.(avif|jpe?g|png|webp)$/i.test(image))
 	.sort((a, b) =>
 		a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }),
-	);
+	)
+	.map((image) => ({
+		file: image,
+		caption: image.replace(/\.[^.]+$/, "").replaceAll("-", " "),
+	}));
 
 const basePath = import.meta.env.BASE_URL.endsWith("/")
 	? import.meta.env.BASE_URL
@@ -74,24 +78,6 @@ const carouselImagePath = (image: string) =>
 ---
 
 <BaseLayout navbarActiveItemID="home">
-  <Fragment slot="page-decor">
-    <div class="homepage-carousel" aria-hidden="true">
-      <div class="homepage-carousel__track">
-        {
-          [...carouselImages, ...carouselImages].map((image) => (
-            <img
-              src={carouselImagePath(image)}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              class="homepage-carousel__image"
-            />
-          ))
-        }
-      </div>
-    </div>
-  </Fragment>
-
   <div class="relative">
     <section id="about" class="mt-6" aria-labelledby="about-heading">
       <div
@@ -235,67 +221,140 @@ const carouselImagePath = (image: string) =>
       </div>
     </section>
 
+    <section id="photos" class="mt-2 pb-4" aria-labelledby="photos-heading">
+      <div
+        class="bg-black/20 border border-gray-700 rounded font-mono text-sm text-gray-300 py-6"
+        role="region"
+        aria-label="Photo carousel"
+      >
+        <h2 id="photos-heading" class="px-6 text-sm font-bold text-gray-500">
+          photos
+        </h2>
+
+        <div class="photo-carousel" aria-label="Photo carousel">
+          <div class="photo-carousel__track">
+            {
+              carouselImages.map(({ file, caption }) => (
+                <figure class="photo-carousel__item" tabindex="0">
+                  <img
+                    src={carouselImagePath(file)}
+                    alt={caption}
+                    loading="lazy"
+                    decoding="async"
+                    class="photo-carousel__image"
+                  />
+                  <figcaption class="photo-carousel__caption">
+                    {caption}
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </BaseLayout>
 
 <style>
-  @keyframes carousel-left {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
+  .photo-carousel {
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 1.25rem 1.5rem 1.75rem;
+    scroll-padding-inline: 1.5rem;
+    scroll-snap-type: x proximity;
+    scrollbar-color: rgb(34 211 238 / 35%) transparent;
+    scrollbar-width: thin;
   }
 
-  .homepage-carousel {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 0;
-    height: clamp(7rem, 13vw, 12rem);
-    overflow: hidden;
-    padding-block: 0.75rem;
-    pointer-events: none;
-    background: linear-gradient(
-      to top,
-      rgb(0 0 0 / 62%),
-      rgb(0 0 0 / 8%)
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 6%,
-      black 94%,
-      transparent
-    );
+  .photo-carousel::-webkit-scrollbar {
+    height: 0.5rem;
   }
 
-  .homepage-carousel__track {
+  .photo-carousel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .photo-carousel::-webkit-scrollbar-thumb {
+    background: rgb(34 211 238 / 28%);
+    border-radius: 999px;
+  }
+
+  .photo-carousel__track {
     display: flex;
     width: max-content;
-    height: 100%;
-    gap: 0.75rem;
-    animation: carousel-left 62s linear infinite;
-    will-change: transform;
+    gap: 1rem;
+    align-items: stretch;
   }
 
-  .homepage-carousel__image {
-    height: 100%;
+  .photo-carousel__item {
+    position: relative;
+    z-index: 0;
+    flex: 0 0 clamp(10rem, 22vw, 15rem);
+    margin: 0;
+    cursor: zoom-in;
+    scroll-snap-align: center;
+    transform-origin: center bottom;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease,
+      filter 180ms ease;
+  }
+
+  .photo-carousel__item:hover,
+  .photo-carousel__item:focus {
+    z-index: 10;
+    outline: 0;
+    transform: translateY(-0.55rem) scale(1.1);
+    opacity: 1;
+  }
+
+  .photo-carousel__item:focus-visible {
+    outline: 2px solid rgb(34 211 238 / 70%);
+    outline-offset: 0.35rem;
+    border-radius: 0.5rem;
+  }
+
+  .photo-carousel__image {
+    display: block;
+    width: 100%;
     aspect-ratio: 4 / 5;
     border: 1px solid rgb(255 255 255 / 14%);
     border-radius: 0.5rem;
     object-fit: cover;
-    opacity: 0.72;
+    opacity: 0.78;
     box-shadow: 0 18px 45px rgb(0 0 0 / 36%);
   }
 
+  .photo-carousel__item:hover .photo-carousel__image,
+  .photo-carousel__item:focus .photo-carousel__image {
+    opacity: 1;
+    filter: saturate(1.1);
+  }
+
+  .photo-carousel__caption {
+    margin-top: 0.65rem;
+    min-height: 2.4rem;
+    color: rgb(209 213 219);
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 640px) {
+    .photo-carousel {
+      padding-inline: 1rem;
+      scroll-padding-inline: 1rem;
+    }
+
+    .photo-carousel__item {
+      flex-basis: clamp(9rem, 62vw, 13rem);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .homepage-carousel__track {
-      animation-duration: 1ms;
-      animation-iteration-count: 1;
+    .photo-carousel__item {
+      transition: none;
     }
   }
 </style>

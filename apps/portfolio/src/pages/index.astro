@@ -5,6 +5,7 @@ import {
 	CONTACT_EMAIL,
 	SITE_OWNER,
 } from "../config";
+import Plasma from "../components/Plasma";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const techStack: Record<string, string> = {
@@ -59,6 +60,21 @@ const experiences: Array<{
 
 <BaseLayout navbarActiveItemID="home">
   <main>
+    <section
+      class="mt-6 h-36 md:h-48 overflow-hidden rounded border border-gray-700 bg-black/20"
+      aria-hidden="true"
+    >
+      <Plasma
+        color="#6fd136"
+        speed={0.5}
+        direction="pingpong"
+        scale={1.2}
+        opacity={0.5}
+        mouseInteractive={true}
+        client:only="react"
+      />
+    </section>
+
     <section id="about" class="mt-6" aria-labelledby="about-heading">
       <div
         class="bg-black/30 border border-gray-600 rounded-lg font-mono text-sm p-6"

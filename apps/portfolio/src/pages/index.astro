@@ -57,6 +57,18 @@ const experiences: Array<{
 	},
 ];
 
+const formatCarouselCaption = (image: string) => {
+	const separatorToken = "%%CAPTIONSEPARATOR%%";
+
+	return image
+		.replace(/\.[^.]+$/, "")
+		.replace(/\s+-\s+/g, ` ${separatorToken} `)
+		.replace(/[-_]+/g, " ")
+		.replaceAll(separatorToken, "-")
+		.replace(/\s+/g, " ")
+		.trim();
+};
+
 const carouselImages = readdirSync(
 	new URL("../../public/carousel", import.meta.url),
 )
@@ -66,11 +78,7 @@ const carouselImages = readdirSync(
 	)
 	.map((image) => ({
 		file: image,
-		caption: image
-			.replace(/\.[^.]+$/, "")
-			.replace(/[-_]+/g, " ")
-			.replace(/\s+/g, " ")
-			.trim(),
+		caption: formatCarouselCaption(image),
 	}));
 
 const basePath = import.meta.env.BASE_URL.endsWith("/")

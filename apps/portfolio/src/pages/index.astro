@@ -66,7 +66,11 @@ const carouselImages = readdirSync(
 	)
 	.map((image) => ({
 		file: image,
-		caption: image.replace(/\.[^.]+$/, "").replaceAll("-", " "),
+		caption: image
+			.replace(/\.[^.]+$/, "")
+			.replace(/[-_]+/g, " ")
+			.replace(/\s+/g, " ")
+			.trim(),
 	}));
 
 const basePath = import.meta.env.BASE_URL.endsWith("/")
@@ -221,48 +225,72 @@ const carouselImagePath = (image: string) =>
       </div>
     </section>
 
-    <section id="photos" class="mt-2 pb-4" aria-labelledby="photos-heading">
-      <div
-        class="bg-black/20 border border-gray-700 rounded font-mono text-sm text-gray-300 py-6"
-        role="region"
-        aria-label="Photo carousel"
-      >
-        <h2 id="photos-heading" class="px-6 text-sm font-bold text-gray-500">
-          photos
-        </h2>
+  </div>
 
-        <div class="photo-carousel" aria-label="Photo carousel">
-          <div class="photo-carousel__track">
-            {
-              carouselImages.map(({ file, caption }) => (
-                <figure class="photo-carousel__item" tabindex="0">
-                  <img
-                    src={carouselImagePath(file)}
-                    alt={caption}
-                    loading="lazy"
-                    decoding="async"
-                    class="photo-carousel__image"
-                  />
-                  <figcaption class="photo-carousel__caption">
-                    {caption}
-                  </figcaption>
-                </figure>
-              ))
-            }
-          </div>
+  <Fragment slot="full-width">
+    <section id="photos" class="photo-section" aria-labelledby="photos-heading">
+      <div class="photo-section__header">
+        <h2 id="photos-heading" class="photo-section__title">photos</h2>
+      </div>
+
+      <div class="photo-carousel" aria-label="Photo carousel">
+        <div class="photo-carousel__track">
+          {
+            carouselImages.map(({ file, caption }) => (
+              <figure class="photo-carousel__item" tabindex="0">
+                <img
+                  src={carouselImagePath(file)}
+                  alt={caption}
+                  loading="lazy"
+                  decoding="async"
+                  class="photo-carousel__image"
+                />
+                <figcaption class="photo-carousel__caption">
+                  {caption}
+                </figcaption>
+              </figure>
+            ))
+          }
         </div>
       </div>
     </section>
-
-  </div>
+  </Fragment>
 </BaseLayout>
 
 <style>
+  .photo-section {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 1rem 0 3rem;
+    font-family: var(--font-Departure);
+    background: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0%),
+      rgb(0 0 0 / 42%) 18%,
+      rgb(0 0 0 / 36%) 100%
+    );
+  }
+
+  .photo-section__header {
+    width: min(100%, 55rem);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .photo-section__title {
+    color: rgb(107 114 128);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
   .photo-carousel {
     overflow-x: auto;
     overflow-y: visible;
-    padding: 1.25rem 1.5rem 1.75rem;
-    scroll-padding-inline: 1.5rem;
+    width: 100%;
+    padding: 1.25rem 1rem 1.75rem;
+    scroll-padding-inline: 1rem;
     scroll-snap-type: x proximity;
     scrollbar-color: rgb(34 211 238 / 35%) transparent;
     scrollbar-width: thin;
@@ -291,7 +319,7 @@ const carouselImagePath = (image: string) =>
   .photo-carousel__item {
     position: relative;
     z-index: 0;
-    flex: 0 0 clamp(10rem, 22vw, 15rem);
+    flex: 0 0 clamp(11rem, 18vw, 17rem);
     margin: 0;
     cursor: zoom-in;
     scroll-snap-align: center;

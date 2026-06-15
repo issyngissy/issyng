@@ -18,4 +18,4 @@ bun run preview
 ## Content
 
 Site-wide identity, URLs, and contact details are configured in `src/config.ts`.
-The homepage is `src/pages/index.astro`, social links are in `src/pages/socials.astro`, and blog posts live in `src/content/blog`.
+The homepage is `src/pages/index.astro`, social links are in `src/pages/socials.astro`, and the public resume PDF is `public/resume.pdf`.

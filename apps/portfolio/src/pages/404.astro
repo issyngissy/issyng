@@ -3,7 +3,7 @@ import { withBase } from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const homeHref = withBase("/");
-const blogHref = withBase("/blog");
+const socialsHref = withBase("/socials");
 ---
 
 <BaseLayout title="404: Not Found">
@@ -82,12 +82,12 @@ const blogHref = withBase("/blog");
                     </a>
                   </p>
                   <p class="text-gray-300">
-                    <span class="text-gray-500">03.</span> Browse available 
+                    <span class="text-gray-500">03.</span> Browse 
                     <a 
-                      href={blogHref} 
+                      href={socialsHref} 
                       class="text-cyan-400 hover:text-cyan-300 underline focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 focus:ring-offset-gray-900"
                     >
-                      blog posts
+                      social links
                     </a>
                   </p>
                 </div>

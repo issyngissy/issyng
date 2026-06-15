@@ -1,28 +1,24 @@
 ---
-
-import { getCollection } from "astro:content";
-import PostPreview from "../components/PostPreview.astro";
 import {
+	BUSINESS_NAME,
+	BUSINESS_URL,
 	CONTACT_EMAIL,
 	GITHUB_URL,
-	REPOSITORY_URL,
 	SITE_BASE,
 	SITE_OWNER,
 	SITE_URL,
+	withBase,
 } from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { sortMDByDate } from "../utils";
-const allPosts = await getCollection("blog");
-const visiblePosts = allPosts.filter((post) => post.data.published !== false);
-const allPostsByDate = sortMDByDate(visiblePosts);
 
 const techStack: Record<string, string> = {
-	ts: "TypeScript",
-	python: "Python",
-	astro: "Astro",
-	react: "React",
-	tailwind: "Tailwind",
-	git: "Git",
+	web: "Website creation",
+	seo: "SEO",
+	ads: "Meta ads",
+	video: "Videography",
+	ai: "AI automations",
+	crm: "CRM workflows",
+	sales: "Outbound sales",
 };
 
 const projects: Array<{
@@ -32,16 +28,22 @@ const projects: Array<{
 	icon: string;
 }> = [
 	{
-		title: "GitHub",
-		description: "Project index and code experiments",
-		icon: "⌘",
-		link: GITHUB_URL,
+		title: BUSINESS_NAME,
+		description: "Websites, SEO, content and paid ads for small businesses",
+		icon: "◈",
+		link: BUSINESS_URL,
 	},
 	{
-		title: "Portfolio Site",
-		description: "Astro portfolio deployed with GitHub Pages",
-		link: REPOSITORY_URL,
-		icon: "▣",
+		title: "Resume",
+		description: "2026 resume PDF",
+		link: withBase("/resume.pdf"),
+		icon: "▤",
+	},
+	{
+		title: "GitHub",
+		description: "Portfolio source and project work",
+		icon: "⌘",
+		link: GITHUB_URL,
 	},
 ];
 ---
@@ -72,7 +74,7 @@ const projects: Array<{
               <div class="flex flex-col">
                 <h1 class="text-primary text-xl">{SITE_OWNER}</h1>
                 <p class="text-gray-400 text-xs">
-                  Developer. Builder. Student.
+                  Founder. Commerce student. Operator.
                 </p>
               </div>
             </div>
@@ -80,7 +82,7 @@ const projects: Array<{
             <!-- Personal paragraph -->
             <div class="bg-gray-500/10 rounded-lg p-3 mb-4">
               <p class="text-gray-200 leading-relaxed">
-                I am building a focused portfolio for projects, notes, and ways to get in touch. Current work centers on practical web projects, clean interfaces, and reliable deployment workflows.
+                I am a commerce student and founder of Render Marketing, building websites, AI automations, CRM workflows and marketing systems for small businesses in Perth.
               </p>
             </div>
 
@@ -94,14 +96,22 @@ const projects: Array<{
             <div class="flex">
               <span class="text-gray-400 w-36 shrink-0">Work</span>
               <span class="text-white">
-                Developer
+                Founder,
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-cyan-600 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  href={BUSINESS_URL}
+                  aria-label={`Visit ${BUSINESS_NAME}`}
+                  >{BUSINESS_NAME}</a
+                >
               </span>
             </div>
 
             <div class="flex">
               <span class="text-gray-400 w-36 shrink-0">Interests</span>
               <span class="text-white"
-              >Web, tooling, creative technology</span
+              >SME growth, AI automation, sales, finance</span
               >
             </div>
 
@@ -118,8 +128,8 @@ const projects: Array<{
 
             <div class="flex">
               <div class="flex items-center">
-                <span class="text-gray-400 w-36 shrink-0">Tech</span>
-                <div class="flex flex-wrap gap-2" role="list" aria-label="Tech">
+                <span class="text-gray-400 w-36 shrink-0">Focus</span>
+                <div class="flex flex-wrap gap-2" role="list" aria-label="Focus areas">
                   {
                     Object.keys(techStack).map((lang) => (
                       <span
@@ -148,7 +158,7 @@ const projects: Array<{
         role="region"
         aria-label="Project showcase"
       >
-        <h2 class="mb-4 text-sm font-bold text-gray-500">💻 project samples</h2>
+        <h2 class="mb-4 text-sm font-bold text-gray-500">💻 featured links</h2>
         <div class="space-y-2" role="list">
           {
             projects.map((project, index) => (
@@ -226,17 +236,5 @@ const projects: Array<{
       </div>
     </section>
 
-    <section id="blog" class="mt-8">
-      <h2 class="text-sm mb-6 font-semibold text-gray-500">✍️ latest posts</h2>
-      <ul class="space-y-6" role="list">
-        {
-          allPostsByDate.map((post) => (
-            <li class="flex flex-col gap-x-2 sm:flex-row" role="listitem">
-              <PostPreview post={post} />
-            </li>
-          ))
-        }
-      </ul>
-    </section>
   </main>
 </BaseLayout>

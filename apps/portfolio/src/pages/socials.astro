@@ -1,7 +1,16 @@
 
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { CONTACT_EMAIL, GITHUB_URL, SITE_OWNER, SITE_URL } from "../config";
+import {
+	BUSINESS_NAME,
+	BUSINESS_URL,
+	CONTACT_EMAIL,
+	GITHUB_URL,
+	LINKEDIN_URL,
+	SITE_OWNER,
+	SITE_URL,
+	withBase,
+} from "../config";
 
 const siteDisplay = SITE_URL.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
@@ -25,10 +34,27 @@ const socials: Array<{
 		icon: "github",
 	},
 	{
+		title: "LinkedIn",
+		description: "Issy Ng",
+		href: LINKEDIN_URL,
+		icon: "linkedin",
+	},
+	{
+		title: BUSINESS_NAME,
+		description: "rendermarketing.com.au",
+		href: BUSINESS_URL,
+		icon: "googlechrome",
+	},
+	{
 		title: "Email",
 		description: CONTACT_EMAIL,
 		href: `mailto:${CONTACT_EMAIL}`,
 		icon: "icloud",
+	},
+	{
+		title: "Resume",
+		description: "2026 resume PDF",
+		href: withBase("/resume.pdf"),
 	},
 ];
 

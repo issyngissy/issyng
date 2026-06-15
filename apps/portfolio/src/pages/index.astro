@@ -5,7 +5,6 @@ import {
 	CONTACT_EMAIL,
 	SITE_OWNER,
 } from "../config";
-import Plasma from "../components/Plasma";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const techStack: Record<string, string> = {
@@ -56,25 +55,73 @@ const experiences: Array<{
 		tags: ["Finance", "Modelling", "Property"],
 	},
 ];
+
+const carouselImages = {
+	left: [
+		"114 Friday Ignition 250905 JWyld.jpg",
+		"DSC01097.ARW.jpeg",
+		"IMG_5989.jpeg",
+		"_MIL8817.jpg",
+		"b9a22718-5f40-4e6b-9f91-bb757cce40d9.jpg",
+		"c817667d-99ec-4b5f-a1c5-44f9cd15e279.jpg",
+	],
+	right: [
+		"IMG_7725.jpeg",
+		"WhatsApp Image 2025-10-14 at 15.35.14.jpeg",
+		"_DSC9008.jpg",
+		"_DSC1169.jpg",
+		"IMG_7042.jpeg",
+		"IMG_2867.jpeg",
+		"Gemini_Generated_Image_q9ekniq9ekniq9ek.png",
+	],
+};
+
+const basePath = import.meta.env.BASE_URL.endsWith("/")
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+
+const carouselImagePath = (
+	side: keyof typeof carouselImages,
+	image: string,
+) => `${basePath}carousel/${side}/${encodeURIComponent(image)}`;
 ---
 
 <BaseLayout navbarActiveItemID="home">
-  <main>
-    <section
-      class="mt-6 h-36 md:h-48 overflow-hidden rounded border border-gray-700 bg-black/20"
-      aria-hidden="true"
-    >
-      <Plasma
-        color="#6fd136"
-        speed={0.5}
-        direction="pingpong"
-        scale={1.2}
-        opacity={0.5}
-        mouseInteractive={true}
-        client:only="react"
-      />
-    </section>
+  <Fragment slot="page-decor">
+    <div class="homepage-carousel homepage-carousel--left" aria-hidden="true">
+      <div class="homepage-carousel__track">
+        {
+          [...carouselImages.left, ...carouselImages.left].map((image) => (
+            <img
+              src={carouselImagePath("left", image)}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="homepage-carousel__image"
+            />
+          ))
+        }
+      </div>
+    </div>
 
+    <div class="homepage-carousel homepage-carousel--right" aria-hidden="true">
+      <div class="homepage-carousel__track">
+        {
+          [...carouselImages.right, ...carouselImages.right].map((image) => (
+            <img
+              src={carouselImagePath("right", image)}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="homepage-carousel__image"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </Fragment>
+
+  <div class="relative">
     <section id="about" class="mt-6" aria-labelledby="about-heading">
       <div
         class="bg-black/30 border border-gray-600 rounded-lg font-mono text-sm p-6"
@@ -217,5 +264,91 @@ const experiences: Array<{
       </div>
     </section>
 
-  </main>
+  </div>
 </BaseLayout>
+
+<style>
+  @keyframes carousel-up {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes carousel-down {
+    from {
+      transform: translateY(-50%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .homepage-carousel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    display: none;
+    width: clamp(8rem, 14vw, 18rem);
+    overflow: hidden;
+    padding-block: 1.25rem;
+    pointer-events: none;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .homepage-carousel--left {
+    left: clamp(1rem, 2vw, 2.5rem);
+  }
+
+  .homepage-carousel--right {
+    right: clamp(1rem, 2vw, 2.5rem);
+  }
+
+  .homepage-carousel__track {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    animation: carousel-up 38s linear infinite;
+    will-change: transform;
+  }
+
+  .homepage-carousel--right .homepage-carousel__track {
+    animation-name: carousel-down;
+    animation-duration: 44s;
+  }
+
+  .homepage-carousel__image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border: 1px solid rgb(255 255 255 / 14%);
+    border-radius: 0.5rem;
+    object-fit: cover;
+    opacity: 0.72;
+    box-shadow: 0 18px 45px rgb(0 0 0 / 36%);
+  }
+
+  @media (min-width: 1280px) {
+    .homepage-carousel {
+      display: block;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .homepage-carousel__track {
+      animation-duration: 1ms;
+      animation-iteration-count: 1;
+    }
+  }
+</style>

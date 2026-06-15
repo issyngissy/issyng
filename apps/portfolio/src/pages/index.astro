@@ -8,17 +8,14 @@ import {
 } from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const techStack: Record<string, string> = {
-	web: "Website creation",
-	seo: "SEO",
-	ads: "Google and Meta ads",
-	video: "Videography",
-	ai: "AI automations",
-	crm: "CRM workflows",
-	product: "Product validation",
-	sales: "Outbound sales",
-	finance: "Financial analysis",
-};
+const hudFocus = [
+	"AI automations",
+	"CRM workflows",
+	"SME growth",
+	"websites",
+	"SEO",
+	"finance",
+];
 
 const experiences: Array<{
 	role: string;
@@ -31,29 +28,29 @@ const experiences: Array<{
 		role: "Founder",
 		company: BUSINESS_NAME,
 		dates: "Mar 2026 - Present",
-		summary: "I help Perth small businesses look sharper online and turn traffic into leads.",
+		summary: "I work with Perth SMEs on websites, SEO and paid ads to grow their online presence.",
 		tags: ["Websites", "SEO", "Google Ads", "Meta Ads"],
 	},
 	{
 		role: "Sales & AI Automations",
 		company: "GoFlo Solutions",
 		dates: "Aug 2025 - Feb 2026",
-		summary: "I sold and built AI automations that cleaned up admin-heavy workflows.",
+		summary: "I built AI-driven automations and custom integrations for small businesses.",
 		tags: ["AI", "APIs", "Workflow Design"],
 	},
 	{
 		role: "Co-Founder",
 		company: "SkinAI",
 		dates: "Apr 2025 - Aug 2025",
-		summary: "I worked on an AI skincare product and learned how to test a market before overbuilding.",
+		summary: "Led product development, strategy and validation for an AI skincare tool using facial analysis, user input and dermatologist-backed logic.",
 		tags: ["Product", "Validation", "Strategy"],
 	},
 	{
 		role: "Financial Analyst",
 		company: "Dradgin",
 		dates: "Jun 2024 - Mar 2025",
-		summary: "I built commercial property investment models and got a practical base in finance.",
-		tags: ["Finance", "Modelling", "Property"],
+		summary: "Built investment models, valuation analysis and financial forecasts to support finance decisions.",
+		tags: ["Finance", "Valuation", "Modelling"],
 	},
 ];
 
@@ -141,7 +138,7 @@ const carouselImagePath = (image: string) =>
               <div class="flex flex-col">
                 <h1 class="text-primary text-xl">{SITE_OWNER}</h1>
                 <p class="text-gray-400 text-xs">
-                  Founder. Commerce student. Operator.
+                  Founder. Commerce student. AI automations.
                 </p>
               </div>
             </div>
@@ -149,7 +146,7 @@ const carouselImagePath = (image: string) =>
             <!-- Personal paragraph -->
             <div class="bg-gray-500/10 rounded-lg p-3 mb-4">
               <p class="text-gray-200 leading-relaxed">
-                I am a commerce student and founder of Render Marketing. My work has moved across SME marketing, AI automation, product validation and commercial property analysis.
+                I am a commerce student and founder of Render Marketing, focused on AI automations, SME growth systems, product validation and finance.
               </p>
             </div>
 
@@ -176,9 +173,9 @@ const carouselImagePath = (image: string) =>
             </div>
 
             <div class="flex flex-col gap-1 sm:flex-row">
-              <span class="text-gray-400 sm:w-36 shrink-0">Interests</span>
+              <span class="text-gray-400 sm:w-36 shrink-0">Main skill</span>
               <span class="text-white"
-              >SME growth, AI automation, product, finance</span
+              >AI automations</span
               >
             </div>
 
@@ -198,12 +195,12 @@ const carouselImagePath = (image: string) =>
                 <span class="text-gray-400 sm:w-36 shrink-0">Focus</span>
                 <div class="flex flex-wrap gap-2" role="list" aria-label="Focus areas">
                   {
-                    Object.keys(techStack).map((lang) => (
+                    hudFocus.map((focus) => (
                       <span
                         class="text-gray-400 hover:text-cyan-600 transition-colors"
-                        title={techStack[lang]}
+                        title={focus}
                       >
-                        {lang}
+                        {focus}
                       </span>
                     ))
                   }

@@ -6,7 +6,7 @@
     { "label": "Phone", "value": "+61 481 220 900" },
     { "label": "Email", "value": "issy.ng@icloud.com", "url": "mailto:issy.ng@icloud.com" },
     { "label": "Address", "value": "South Perth, WA" },
-    { "label": "GitHub", "value": "github.com/issyngissy", "url": "https://github.com/issyngissy", "icon": "github" }
+    { "label": "GitHub", "value": "github.com/issyngissy", "url": "https://github.com/issyngissy", "icon": "assets/github.png" }
   ],
   "about": [
     "I'm a Commerce student at Curtin University, studying finance and computer science. I build AI tools and full stack applications, and I enjoy working directly with the people who use them.",

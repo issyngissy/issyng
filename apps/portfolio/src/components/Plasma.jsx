@@ -110,7 +110,8 @@ export const Plasma = ({
 				webgl: 2,
 				alpha: true,
 				antialias: false,
-				dpr: Math.min(window.devicePixelRatio || 1, 2),
+				// Soft background sits behind a blur, so render at half resolution and let CSS upscale.
+				dpr: 0.5,
 			});
 		} catch {
 			return;
@@ -179,9 +180,17 @@ export const Plasma = ({
 		let contextLost = false;
 		let isVisible = true;
 		const startTime = performance.now();
+		const frameInterval = 1000 / 30;
+		let lastFrame = 0;
 
 		const loop = (time) => {
 			if (contextLost || !isVisible) return;
+
+			if (time - lastFrame < frameInterval) {
+				raf = requestAnimationFrame(loop);
+				return;
+			}
+			lastFrame = time;
 
 			const timeValue = (time - startTime) * 0.001;
 			if (direction === "pingpong") {

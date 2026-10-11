@@ -12,13 +12,21 @@ const esc = (text: string) =>
 const list = (items: string[]) =>
 	`<ul class="points">${items.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>`;
 
+// "Aug 2026 to Present · 3 mos": the length after the dot gets its own darker style.
+const dates = (text: string) => {
+	const [range, length] = text.split(" · ");
+	return length
+		? `${esc(range)} · <span class="length">${esc(length)}</span>`
+		: esc(range);
+};
+
 const entry = (e: any) => `
   <article class="entry">
     <div class="entry-head">
       ${e.logo ? `<img src="${e.logo}" alt="">` : "<span></span>"}
       <span class="role">${esc(e.role)}</span>
       <span class="company">${esc(e.company)}</span>
-      <span class="dates">${esc(e.dates)}</span>
+      <span class="dates">${dates(e.dates)}</span>
     </div>
     ${list(e.points)}
   </article>`;

@@ -1,11 +1,10 @@
 {
   "name": "resume",
-  "description": "Austin Delic's Portfolio",
-  "author": "austindelic",
+  "description": "Issy Ng's resume",
+  "author": "issyngissy",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "build": "bash build-all.sh",
-    "build:base": "typst compile resume.typ ../portfolio/public/resume.pdf"
+    "build": "cp resume.pdf ../portfolio/public/resume.pdf"
   }
 }

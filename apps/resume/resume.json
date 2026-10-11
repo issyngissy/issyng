@@ -13,7 +13,7 @@
     "I co-founded GoFlo Solutions and now work part-time at Relait as a software engineer and customer success associate. My finance background helps me understand the commercial goals behind the software I build."
   ],
   "skills": [
-    { "group": "Languages & Core", "items": ["Python, Java, TypeScript", "Data Structures & Algorithms"] },
+    { "group": "Languages & Core", "items": ["Python, Java, TypeScript, C", "Data Structures & Algorithms"] },
     { "group": "Frontend", "items": ["React, Astro, Svelte, Tailwind CSS"] },
     { "group": "Backend", "items": ["Node.js, Express, REST API design"] },
     { "group": "Data & Infra", "items": ["PostgreSQL, Prisma ORM", "Docker, Authentication (JWT)"] },

@@ -1,0 +1,81 @@
+{
+  "name": "Issy Ng",
+  "subtitle": "2026 Resume",
+  "photo": "assets/photo.jpeg",
+  "contact": [
+    { "label": "Phone", "value": "+61 481 220 900" },
+    { "label": "Email", "value": "issy.ng@icloud.com", "url": "mailto:issy.ng@icloud.com" },
+    { "label": "Address", "value": "South Perth, WA" },
+    { "label": "GitHub", "value": "github.com/issyngissy", "url": "https://github.com/issyngissy", "icon": "github" }
+  ],
+  "about": [
+    "I'm a Commerce student at Curtin University, studying finance and computer science. I build AI tools and full stack applications, and I enjoy working directly with the people who use them.",
+    "I co-founded GoFlo Solutions and now work part-time at Relait as a software engineer and customer success associate. My finance background helps me understand the commercial goals behind the software I build."
+  ],
+  "skills": [
+    { "group": "Languages & Core", "items": ["Python, Java, TypeScript", "Data Structures & Algorithms"] },
+    { "group": "Frontend", "items": ["React, Astro, Svelte, Tailwind CSS"] },
+    { "group": "Backend", "items": ["Node.js, Express, REST API design"] },
+    { "group": "Data & Infra", "items": ["PostgreSQL, Prisma ORM", "Docker, Authentication (JWT)"] },
+    { "group": "Tools", "items": ["GitHub, VS Code, Azure, AWS", "Claude + LLM tools"] }
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer | Customer Success Associate",
+      "company": "Relait (Part-time)",
+      "dates": "Aug 2026 to Present · 3 mos",
+      "logo": "assets/relait.png",
+      "points": [
+        "Build AI agents for the internal team to streamline operations.",
+        "Ship features and bug fixes on Relait's flagship product.",
+        "Work with clients to gather feedback and turn it into product changes."
+      ]
+    },
+    {
+      "role": "Co-Founder & Software Developer",
+      "company": "GoFlo Solutions",
+      "dates": "Aug 2025 to Feb 2026 · 7 mos",
+      "logo": "assets/goflo.png",
+      "points": [
+        "Built and deployed AI tools for mining, service and coaching businesses.",
+        "Automated reporting and CRM workflows that took 1 to 4 hours manually.",
+        "Built internal knowledge systems for sales and delivery work."
+      ]
+    },
+    {
+      "role": "IT Consultancy | Product & Growth",
+      "company": "Biz365",
+      "dates": "Jun to Oct 2025 · 5 mos",
+      "logo": "assets/biz365.png",
+      "points": ["Ran outbound outreach and customer interviews for an early B2B product."]
+    },
+    {
+      "role": "Financial Analyst",
+      "company": "Dradgin",
+      "dates": "Jun 2023 to Jul 2024 · 1 yr 2 mos",
+      "logo": "assets/dradgin.png",
+      "points": ["Built investment and valuation models for commercial property and presented them to directors and executives."]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Field Frame | Logistics Scheduling Platform",
+      "points": ["Full stack logistics dashboard for drivers, freight jobs and proof of delivery."],
+      "stack": "React, TS, Express, Prisma, PostgreSQL, Docker, Azure"
+    },
+    {
+      "title": "Render Marketing | Agency Website",
+      "points": ["Responsive marketing site with SEO pages, proposals and campaign reporting."],
+      "stack": "Astro, Svelte, TS, Tailwind CSS, form integration & lead capture"
+    }
+  ],
+  "education": [
+    {
+      "role": "Bachelor of Commerce | Finance & Computer Science",
+      "company": "Curtin University",
+      "dates": "2024 to Present",
+      "logo": "assets/curtin.png",
+      "points": ["CS electives in DSA, Java programming, Software Engineering, and Unix & C."]
+    }
+  ]
+}
